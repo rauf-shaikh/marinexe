@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" x-data="scrollStory()" x-init="init" @scroll.window="onScroll">
+<head>
+  <meta charset="UTF-8" />
+  <title>Scrollytelling Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+    .bg-cover-center {
+      background-size: cover;
+      background-position: center;
+    }
+  </style>
+</head>
+<body class="font-sans text-white overflow-x-hidden">
+
+  <!-- Fixed text overlay -->
+  <div class="fixed top-0 left-0 w-full h-screen flex flex-col justify-center items-center text-center px-4 z-30 bg-black/40">
+    <h1 class="text-3xl md:text-5xl font-bold mb-4 transition-all duration-500" x-text="sections[current].title"></h1>
+    <p class="text-lg md:text-xl max-w-xl transition-opacity duration-500" x-text="sections[current].text"></p>
+  </div>
+
+  <!-- Fullscreen background sections -->
+  <template x-for="(section, index) in sections" :key="index">
+    <section 
+      :style="`background-image: url(${section.image})`"
+      class="h-screen w-full bg-cover-center">
+    </section>
+  </template>
+
+
+nope instead of working on one thing and making it best you give every thing and mke it worst
+<!-- Google Maps Embed -->
+
+    <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15074.487658472368!2d73.06274725890971!3d19.168020381056504!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7bfe8df449
+        0a1%3A0x41629dfb5084dff1!2sPalava%20City%2C%20Maharashtra%20421204!5e0!3m2!1sen!2sin!4v1754468481417!5m2!1sen!2sin" 
+        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+    </iframe> -->
+
+
+    
+
+  <!-- Alpine.js logic -->
+  <script>
+    function scrollStory() {
+      return {
+        current: 0,
+        sections: [
+          {
+            title: 'Enter the Forest',
+            text: 'The journey begins deep in the woods where every path leads to discovery.',
+            image: 'https://source.unsplash.com/1600x900/?forest'
+          },
+          {
+            title: 'Climb the Mountain',
+            text: 'Challenges build strength as we climb higher than ever before.',
+            image: 'https://source.unsplash.com/1600x900/?mountain'
+          },
+          {
+            title: 'Embrace the Light',
+            text: 'A breakthrough awaits at the top — filled with clarity and warmth.',
+            image: 'https://source.unsplash.com/1600x900/?sunrise'
+          },
+          {
+            title: '🚀 Launch into Possibility',
+            text: 'The horizon expands and the real journey begins.',
+            image: 'https://source.unsplash.com/1600x900/?space,stars'
+          }
+        ],
+        init() {
+          this.onScroll();
+        },
+        onScroll() {
+          const index = Math.floor(window.scrollY / window.innerHeight);
+          this.current = Math.min(index, this.sections.length - 1);
+        }
+      }
+    }
+  </script>
+</body>
+</html>
+https://stackoverflow.com/questions/2920076/html-css-how-to-add-image-icon-to-input-type-button
+
+
+<!-- GSAP Practice -->
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Tailwind Bouncing Dots</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Custom bounce keyframes for scaling dots */
+    @keyframes bounce-scale {
+      0%, 100% {
+        transform: scale(0.5);
+      }
+      50% {
+        transform: scale(1.2);
+      }
+    }
+
+    .animate-bounce-scale {
+      animation: bounce-scale 1.4s ease-in-out infinite;
+    }
+
+    /* Animation delays for each dot */
+    .dot:nth-child(1) {
+      animation-delay: 0.4s;
+    }
+
+    .dot:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .dot:nth-child(3) {
+      animation-delay: 0s;
+    }
+  </style>
+</head>
+<body class="m-0 h-screen bg-[#121212] flex justify-center items-center">
+
+  <div class="flex flex-col justify-center gap-[18px]">
+    <div class="dot w-[11px] h-[11px] rounded-full bg-[#F05874] shadow-[0_0_12px_#ffffff] animate-bounce-scale"></div>
+    <div class="dot w-[11px] h-[11px] rounded-full bg-[#F05874] shadow-[0_0_12px_#ffffff] animate-bounce-scale"></div>
+    <div class="dot w-[11px] h-[11px] rounded-full bg-[#F05874] shadow-[0_0_12px_#ffffff] animate-bounce-scale"></div>
+  </div>
+
+</body>
+</html> -->

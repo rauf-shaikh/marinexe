@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Practice Page</title>
+    <link rel="icon" href="https://marinexe.blogspot.com/favicon.ico" />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Alpine.js CDN -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+<script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+      }
+      [x-cloak] {
+        display: none !important;
+      }
+    </style>
+  </head>
+  <body
+    x-data="layout()"
+    x-init="loadTemplates()"
+    class="min-h-screen flex flex-col bg-gray-100"
+  >
+    <!-- Header placeholder -->
+    <div x-ref="header"></div>
+    <!-- Main content starts here -->
+    <main class="flex-grow">
+      <div class="relative min-h-screen w-full overflow-hidden bg-black pt-24 sm:pt-28"
+        x-data="{
+    videos: [
+      '../assets/video1.mp4',
+      '../assets/video2.mp4',
+      '../assets/video3.mp4',
+      '../assets/video4.mp4',
+      '../assets/video5.mp4',
+      '../assets/video6.mp4'
+    ],
+    selected: '',
+    loaded: false,
+    init() {
+      this.selected = this.videos[Math.floor(Math.random() * this.videos.length)];
+      this.$nextTick(() => {
+        const videoEl = this.$refs.video;
+        videoEl.oncanplaythrough = () => {
+          if (!this.loaded) {
+            this.loaded = true; // only set true once
+          }
+        };
+        videoEl.load();
+      });
+    }
+  }"
+      >
+        <!-- Static black background, never changed -->
+        <div class="absolute inset-0 bg-black z-0"></div>
+
+        <!-- Video fades in on load -->
+        <video
+          x-ref="video"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="auto"
+          :src="selected"
+          class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-700"
+          :class="loaded ? 'opacity-100' : 'opacity-0'"
+        ></video>
+
+        <div class="absolute inset-0 bg-black bg-opacity-20"></div>
+
+<div
+  class="relative z-10 flex flex-col items-start text-left 
+  px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 2xl:px-[100px] 
+  pt-52 sm:pt-64 md:pt-72 lg:pt-80 xl:pt-[350px] pb-24"
+>
+          <div class="max-w-full md:max-w-2xl space-y-6 md:space-y-5">
+            <div
+              class="text-white font-medium text-base md:text-base bg-white bg-opacity-30 rounded-full px-3 md:px-6 py-1 md:py-2 max-w-max mb-0 drop-shadow-md tracking-widest"
+            >
+              𓆫 PREMIUM SCAMPI & SEAFOOD
+            </div>
+
+            <!-- TODO: Remove br tag in future with responsive one -->
+            <h1
+              class="text-white text-3xl md:text-5xl font-medium drop-shadow-lg leading-tight"
+            >
+              <span class="block sm:inline">Harvested With Care</span>
+              <span class="block sm:inline">Delivered With Trust</span>
+
+            </h1>
+
+            <p
+              class="text-white text-lg md:text-lg font-medium drop-shadow leading-relaxed max-w-2xl"
+            >
+              From Indian Waters To Global Ports, Our Seafood Meets <br />
+              The Highest Hygiene And Freshness Standards.
+            </p>
+
+            <a
+              href="#learn-more"
+              class="inline-block text-white px-6 py-3 bg-gradient-to-r from-teal-700 to-teal-900 transition hover:brightness-110 shadow-md rounded-md max-w-xs text-center tracking-wider"
+            >
+              LEARN MORE
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Additional Page Content (Optional) -->
+      <section class="p-4">
+        <h2 class="text-3xl font-bold">Explore our seafood excellence</h2>
+      </section>
+
+    </main>
+
+    <!-- Footer placeholder -->
+    <div x-ref="footer"></div>
+
+    <script>
+      function layout() {
+        return {
+          async loadTemplates() {
+            const headerRes = await fetch("../templates/header.html");
+            const headerHtml = await headerRes.text();
+            this.$refs.header.innerHTML = headerHtml;
+            Alpine.initTree(this.$refs.header);
+
+            const footerRes = await fetch("../templates/footer.html");
+            const footerHtml = await footerRes.text();
+            this.$refs.footer.innerHTML = footerHtml;
+            Alpine.initTree(this.$refs.footer);
+          },
+        };
+      }
+    </script>
+  </body>
+</html>

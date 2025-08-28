@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marinexe - Responsive Page</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+  <!-- Navbar -->
+  <header x-data="{ mobileMenuOpen: false }" class="fixed top-0 left-0 right-0 z-50 bg-white/70 backdrop-blur-md shadow-md">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <!-- Logo -->
+      <a href="#" class="text-2xl font-bold text-teal-800">Marinexe</a>
+
+      <!-- Desktop Menu -->
+      <nav class="hidden md:flex space-x-6 font-medium items-center">
+        <a href="#" class="hover:text-teal-700">Home</a>
+        <a href="#about" class="hover:text-teal-700">About</a>
+        <a href="#services" class="hover:text-teal-700">Services</a>
+        <a href="#products" class="hover:text-teal-700">Products</a>
+        <a href="#contact" class="px-4 py-2 rounded-md bg-gradient-to-r from-teal-700 to-teal-900 text-white hover:brightness-110">Contact</a>
+      </nav>
+
+      <!-- Mobile Toggle -->
+      <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden focus:outline-none">
+        <svg x-show="!mobileMenuOpen" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+          viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <svg x-show="mobileMenuOpen" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+          viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <nav x-show="mobileMenuOpen" x-transition class="md:hidden px-4 py-4 space-y-2 bg-white/90 text-black rounded-b-md shadow">
+      <a href="#" class="block hover:text-teal-700">Home</a>
+      <a href="#about" class="block hover:text-teal-700">About</a>
+      <a href="#services" class="block hover:text-teal-700">Services</a>
+      <a href="#products" class="block hover:text-teal-700">Products</a>
+      <a href="#contact" class="block text-white px-4 py-2 rounded-md bg-gradient-to-r from-teal-700 to-teal-900 text-center">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="pt-32 pb-20 bg-gradient-to-br from-teal-100 to-white">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold text-teal-900 mb-6">Welcome to Marinexe</h1>
+      <p class="text-lg text-gray-700 mb-8">Delivering excellence in marine exports and seafood processing with sustainability and global reach.</p>
+      <a href="#contact" class="inline-block bg-teal-700 text-white px-6 py-3 rounded-md hover:brightness-110 transition">Get in Touch</a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="md:flex md:items-center gap-10">
+        <div class="md:w-1/2 mb-8 md:mb-0">
+          <img src="https://source.unsplash.com/600x400/?seafood" alt="Seafood" class="rounded-lg shadow-md w-full">
+        </div>
+        <div class="md:w-1/2">
+          <h2 class="text-3xl font-bold text-teal-800 mb-4">About Us</h2>
+          <p class="text-gray-600 mb-4">Marinexe is a leading exporter of premium seafood products, serving clients across the globe. Our commitment to sustainability, innovation, and quality ensures that our customers always receive the best.</p>
+          <p class="text-gray-600">From sourcing to processing and packaging, we maintain rigorous quality controls that exceed industry standards.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="py-20 bg-gray-100">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold text-teal-800 mb-10">Our Services</h2>
+      <div class="grid md:grid-cols-3 gap-8 text-left">
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+          <h3 class="text-xl font-semibold text-teal-700 mb-2">Seafood Export</h3>
+          <p class="text-gray-600">Delivering the highest quality seafood products globally with reliable logistics and compliance standards.</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+          <h3 class="text-xl font-semibold text-teal-700 mb-2">Processing & Storage</h3>
+          <p class="text-gray-600">Advanced facilities with cold storage and processing capabilities to retain freshness and meet demand.</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+          <h3 class="text-xl font-semibold text-teal-700 mb-2">Quality Assurance</h3>
+          <p class="text-gray-600">We ensure strict quality control and certifications in every step of our supply chain.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section id="products" class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold text-teal-800 mb-10">Our Products</h2>
+      <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div class="bg-gray-50 p-4 rounded-lg shadow">
+          <img src="https://source.unsplash.com/300x200/?fish" alt="Product 1" class="rounded mb-3 w-full">
+          <h4 class="text-lg font-semibold text-teal-700">Fresh Fish</h4>
+        </div>
+        <div class="bg-gray-50 p-4 rounded-lg shadow">
+          <img src="https://source.unsplash.com/300x200/?shrimp" alt="Product 2" class="rounded mb-3 w-full">
+          <h4 class="text-lg font-semibold text-teal-700">Shrimp</h4>
+        </div>
+        <div class="bg-gray-50 p-4 rounded-lg shadow">
+          <img src="https://source.unsplash.com/300x200/?crab" alt="Product 3" class="rounded mb-3 w-full">
+          <h4 class="text-lg font-semibold text-teal-700">Crabs</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-20 bg-gray-100">
+    <div class="max-w-5xl mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold text-teal-800 mb-10">What Our Clients Say</h2>
+      <div class="space-y-10">
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <p class="italic text-gray-700 mb-4">“Marinexe exceeded our expectations in quality and delivery. Our customers love the freshness!”</p>
+          <p class="font-bold text-teal-700">– Oceanic Imports Ltd.</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <p class="italic text-gray-700 mb-4">“Their team is extremely professional and reliable. We’ve partnered for over 5 years.”</p>
+          <p class="font-bold text-teal-700">– BlueWave Foods</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-20 bg-teal-800 text-white">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold mb-6">Get in Touch</h2>
+      <p class="mb-8">Have questions or want to work with us? Fill out the form or reach out directly.</p>
+      <form class="space-y-4">
+        <input type="text" placeholder="Name" class="w-full px-4 py-2 rounded-md text-gray-900" required />
+        <input type="email" placeholder="Email" class="w-full px-4 py-2 rounded-md text-gray-900" required />
+        <textarea placeholder="Message" rows="4" class="w-full px-4 py-2 rounded-md text-gray-900" required></textarea>
+        <button type="submit" class="bg-white text-teal-800 font-semibold px-6 py-2 rounded-md hover:brightness-95 transition">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-300 py-6">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <p>© 2025 Marinexe. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

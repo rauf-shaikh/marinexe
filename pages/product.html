@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Products - Marinexe</title>
+    <link rel="icon" href="https://marinexe.blogspot.com/favicon.ico" />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Alpine.js CDN -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+<script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+      }
+    </style>
+  </head>
+  <body
+    x-data="layout()"
+    x-init="loadTemplates()"
+    class="min-h-screen flex flex-col bg-gray-100"
+  >
+    <!-- Header placeholder -->
+    <div x-ref="header"></div>
+
+    <main class="flex-grow">
+      <!-- Hero Section with Background Image -->
+      <div class="relative h-[70vh] w-full overflow-hidden">
+        <img
+          src="../assets/about.jpg"
+          alt="About Image"
+          class="absolute top-0 left-0 w-full h-full object-cover"
+        />
+        <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+
+        <!-- Optional overlay content -->
+        <div class="relative z-10 h-full flex items-center justify-center">
+          <div
+            class="absolute inset-x-0 bottom-0 flex flex-col items-start z-10 text-left pl-4 sm:pl-6 md:pl-8 lg:pl-16 xl:pl-24 2xl:pl-[100px] pr-4 sm:pr-6 md:pr-8 lg:pr-16 xl:pr-24 2xl:pr-[100px] pb-20 md:pb-32"
+          >
+            <div class="max-w-full md:max-w-2xl space-y-6 md:space-y-7">
+              <!-- TODO: Remove br tag in future with responsive one -->
+              <h1
+                class="text-white text-3xl md:text-4xl lg:text-5xl font-medium drop-shadow-lg leading-tight lg:whitespace-nowrap"
+              >
+                Exporting India's Best Seafood
+              </h1>
+
+              <p
+                class="text-white text-lg md:text-lg font-medium drop-shadow leading-relaxed max-w-2xl"
+              >
+              Certified, Processed & Globally Shipped.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- About Content Section -->
+      <section class="max-w-5xl mx-auto px-6 py-12 text-gray-800">
+        <h2 class="text-2xl font-semibold mb-4">Our Seafood Categories</h2>
+        <p class="mb-4">
+          Seafood Express is a leading exporter of high-quality seafood,
+          committed to excellence since 2016. With a passion for marine products
+          and sustainable practices, we bring the taste of the ocean to global
+          markets.
+        </p>
+        <p>
+          Our facilities are equipped with state-of-the-art processing and
+          storage, ensuring freshness and food safety at every step. Join us on
+          a journey where quality meets trust.
+        </p>
+      </section>
+    </main>
+
+    <!-- Footer placeholder -->
+    <div x-ref="footer"></div>
+
+    <script>
+      function layout() {
+        return {
+          async loadTemplates() {
+            const headerRes = await fetch("../templates/header.html");
+            const headerHtml = await headerRes.text();
+            this.$refs.header.innerHTML = headerHtml;
+            Alpine.initTree(this.$refs.header);
+
+            const footerRes = await fetch("../templates/footer.html");
+            const footerHtml = await footerRes.text();
+            this.$refs.footer.innerHTML = footerHtml;
+            Alpine.initTree(this.$refs.footer);
+          },
+        };
+      }
+    </script>
+  </body>
+</html>
