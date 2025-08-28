@@ -120,7 +120,7 @@
       </div>
 
 <section 
-  class="px-4 py-8 md:px-16 bg-white"
+  class="px-6 py-10 md:px-16 bg-white"
   x-data="{
     categories: {
       'Black Tiger Shrimp': 'category1.png',
@@ -134,34 +134,44 @@
       'Surimi': 'surimi1.jpg',
       'Molluscs': 'mollusc1.jpg'
     },
-    selected: 'Black Tiger Shrimp'
+    selected: 'Black Tiger Shrimp',
+    selectCategory(name) {
+      this.selected = name;
+    }
   }"
 >
-  <div class="max-w-7xl mx-auto flex flex-col md:flex-row flex-end gap-8">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-end gap-12">
     
-    <!-- Sidebar -->
-    <aside class="w-full md:w-1/3 lg:w-0.6/4">
-      <ul class="space-y-2">
-        <template x-for="(img, name) in categories" :key="name">
-          <li>
-            <button 
-              class="w-full text-left px-4 py-4 rounded-md transition 
-                     duration-200 hover:bg-teal-100"
-              :class="selected === name ? 'bg-teal-500 text-white' : 'bg-gray-100'"
-              @click="selected = name"
-              x-text="name"
-            ></button>
-          </li>
-        </template>
-      </ul>
+    <!-- Sidebar: Categories -->
+    <aside class="w-full md:w-1/3 lg:w-1/4 flex flex-col space-y-4 border-r border-gray-300 pr-6">
+      <template x-for="(img, name) in categories" :key="name">
+        <button
+          @click="selectCategory(name)"
+          :class="selected === name 
+            ? 'relative text-teal-600 font-semibold text-lg pl-6 before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-1.5 before:h-8 before:rounded-full before:bg-teal-600' 
+            : 'text-gray-700 hover:text-teal-600'"
+          class="text-left py-3 transition-colors duration-300 ease-in-out"
+        >
+          <span x-text="name"></span>
+        </button>
+      </template>
     </aside>
 
 <!-- Image Display -->
-<div class="w-full md:w-2/3 lg:w-3/4 flex items-end justify-center min-h-[280px]">
+<div
+  class="w-full md:w-3/5 lg:w-7/12 flex items-center justify-center relative h-[480px] bg-gray-100 rounded-lg overflow-hidden shadow-xl"
+  x-transition:enter="transition ease-out duration-500"
+  x-transition:enter-start="opacity-0 scale-95"
+  x-transition:enter-end="opacity-100 scale-100"
+  x-transition:leave="transition ease-in duration-300"
+  x-transition:leave-start="opacity-100 scale-100"
+  x-transition:leave-end="opacity-0 scale-95"
+  :key="selected"
+>
   <img 
-    :src="'../assets/' + categories[selected]"
-    alt=""
-    class="rounded shadow max-w-full max-h-full hover:scale-105 transform transition duration-300 object-contain"
+    :src="'../assets/' + categories[selected]" 
+    alt="" 
+    class="w-full h-full object-cover"
   />
 </div>
 
