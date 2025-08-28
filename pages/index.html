@@ -119,10 +119,54 @@
         </div>
       </div>
 
-      <!-- Additional Page Content (Optional) -->
-      <section class="p-4">
-        <h2 class="text-3xl font-bold">Explore our seafood excellence</h2>
-      </section>
+<section 
+  class="px-4 py-8 md:px-16 bg-white"
+  x-data="{
+    categories: {
+      'Black Tiger Shrimp': 'category1.png',
+      'Scampi': 'category2.jpeg',
+      'Vannamei Shrimp': 'van1.jpg',
+      'Lobster': 'lobster1.jpg',
+      'Tuna Varieties': 'tuna1.jpg',
+      'Crustaceans': 'crust1.jpg',
+      'Fishes': 'fish1.jpg',
+      'Cephalopods': 'cephalopod1.jpg',
+      'Surimi': 'surimi1.jpg',
+      'Molluscs': 'mollusc1.jpg'
+    },
+    selected: 'Black Tiger Shrimp'
+  }"
+>
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row flex-end gap-8">
+    
+    <!-- Sidebar -->
+    <aside class="w-full md:w-1/3 lg:w-0.6/4">
+      <ul class="space-y-2">
+        <template x-for="(img, name) in categories" :key="name">
+          <li>
+            <button 
+              class="w-full text-left px-4 py-4 rounded-md transition 
+                     duration-200 hover:bg-teal-100"
+              :class="selected === name ? 'bg-teal-500 text-white' : 'bg-gray-100'"
+              @click="selected = name"
+              x-text="name"
+            ></button>
+          </li>
+        </template>
+      </ul>
+    </aside>
+
+<!-- Image Display -->
+<div class="w-full md:w-2/3 lg:w-3/4 flex items-end justify-center min-h-[280px]">
+  <img 
+    :src="'../assets/' + categories[selected]"
+    alt=""
+    class="rounded shadow max-w-full max-h-full hover:scale-105 transform transition duration-300 object-contain"
+  />
+</div>
+
+  </div>
+</section>
 
     </main>
 
