@@ -128,36 +128,47 @@
       </div>
 
 <section 
-  class="px-6 py-20 md:px-16 bg-white"
+  class="px-6 py-20 md:px-6 bg-white"
   x-data="{
     categories: {
+      'Scampi': 'imagecopy.png',
       'Black Tiger Shrimp': 'category5.jpeg',
-      'Scampi': 'category2.jpeg',
-      'Vannamei Shrimp': '3image.png',
+      'Vannamei Shrimp': 'category1.png',
       'Lobster': 'unnamed.jpg',
-      'Tuna Varieties': 'tuna1.jpg',
-      'Crustaceans': 'crust1.jpg',
-      'Fishes': 'fish1.jpg',
-      'Cephalopods': 'cephalopod1.jpg',
-      'Surimi': 'surimi1.jpg',
+      'Tuna Varieties': 'unnamed (1).jpg',
+      'Crustaceans': 'unnamed (2).jpg',
+      'Fishes': 'unnamed (3).jpg',
+      'Cephalopods': 'unnamed (4).jpg',
+      'Surimi': 'unnamed (5).jpg',
       'Molluscs': 'mollusc1.jpg'
     },
-    selected: 'Black Tiger Shrimp',
+    selected: 'Scampi',
     selectCategory(name) {
       this.selected = name;
     }
   }"
 >
+
+  <!-- ✅ Title now appears above everything and is aligned left -->
+  <div class="mb-8 max-w-7xl mx-auto text-left">
+    <div class="inline-flex items-center space-x-2 text-sm font-semibold text-blue-950 uppercase tracking-wide bg-white bg-opacity-30 rounded-full px-3 border border-gray-300 py-1">
+      <span class="text-xl">𓆫</span>
+      <span>Explore</span>
+    </div>
+    <h2 class="mt-2 text-3xl font-bold text-blue-950">OUR PRODUCTS CATEGORIES</h2>
+  </div>
+
+  <!-- Two Column Layout -->
   <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-start gap-12">
 
     <!-- Sidebar: Categories (desktop) -->
-    <aside class="w-full md:w-1/3 lg:w-1/4 flex flex-col space-y-4 border-r border-gray-300 pr-6 hidden md:flex">
+    <aside class="w-full md:w-1/3 lg:w-1/3 flex flex-col space-y-4 border-r border-gray-300 text-lg pr-6 hidden md:flex bg-blue-200 rounded-lg pl-4">
       <template x-for="(img, name) in categories" :key="name">
         <button
           @click="selectCategory(name)"
           :class="selected === name 
-            ? 'relative text-teal-600 font-semibold text-lg pl-6 before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-1.5 before:h-8 before:rounded-full before:bg-teal-600' 
-            : 'text-gray-700 hover:text-teal-600'"
+            ? 'relative text-blue-950 font-semibold text-xl pl-6 before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-1.5 before:h-8 before:rounded-full before:bg-blue-900' 
+            : 'text-gray-700 hover:text-blue-950'"
           class="text-left py-3 transition-colors duration-300 ease-in-out"
         >
           <span x-text="name"></span>
@@ -165,39 +176,29 @@
       </template>
     </aside>
 
-    <!-- Image and Title Container -->
+    <!-- Image Container -->
     <div class="w-full md:w-3/5 lg:w-7/12 flex flex-col items-center">
-      <!-- Title above image -->
-      <div class="mb-6 w-full max-w-full text-center md:text-left">
-        <div class="inline-flex items-center justify-center md:justify-start space-x-2 text-sm font-semibold text-gray-700 uppercase tracking-wide bg-white bg-opacity-30 rounded-full px-3 border border-gray-300 py-1">
-          <span class="text-xl">𓆫</span>
-          <span>Explore</span>
-        </div>
-        <h2 class="mt-2 md:mt-2 text-3xl font-bold text-gray-700">Our Products Categories</h2>
+      <div
+        class="w-full flex items-center justify-center relative bg-gray-100 rounded-lg overflow-hidden shadow-xl
+               h-[400px] md:h-[677px] lg:h-[678px]"
+        x-transition:enter="transition ease-out duration-500"
+        x-transition:enter-start="opacity-0 scale-95"
+        x-transition:enter-end="opacity-100 scale-100"
+        x-transition:leave="transition ease-in duration-300"
+        x-transition:leave-start="opacity-100 scale-100"
+        x-transition:leave-end="opacity-0 scale-95"
+        :key="selected"
+      >
+        <img 
+          :src="'../assets/' + categories[selected]" 
+          alt="" 
+          class="w-full h-full object-cover"
+        />
       </div>
-
-<!-- Image Display -->
-<div
-  class="w-full relative mt-4 bg-gray-100 rounded-lg overflow-hidden shadow-xl aspect-[4/3] md:aspect-[16/9]"
-  x-transition:enter="transition ease-out duration-500"
-  x-transition:enter-start="opacity-0 scale-95"
-  x-transition:enter-end="opacity-100 scale-100"
-  x-transition:leave="transition ease-in duration-300"
-  x-transition:leave-start="opacity-100 scale-100"
-  x-transition:leave-end="opacity-0 scale-95"
-  :key="selected"
->
-  <img 
-    :src="'../assets/' + categories[selected]" 
-    alt="" 
-    class="w-full h-full object-cover"
-  />
-</div>
-
-
     </div>
 
   </div>
+
 
   <!-- Mobile horizontal category scroll bar -->
   <div 
@@ -207,7 +208,7 @@
       <button
         @click="selectCategory(name)"
         :class="selected === name 
-          ? 'text-teal-600 font-semibold border-b-2 border-teal-600 pb-1 whitespace-nowrap' 
+          ? 'text-blue-950 font-semibold border-b-2 border-blue-900 pb-1 whitespace-nowrap' 
           : 'text-gray-700 whitespace-nowrap'"
         class="text-sm px-3 py-2 focus:outline-none"
       >
