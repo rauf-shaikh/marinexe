@@ -26,6 +26,14 @@
       [x-cloak] {
         display: none !important;
       }
+            /* Hide horizontal scrollbar but allow scroll */
+      .hide-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .hide-scrollbar {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;     /* Firefox */
+      }
     </style>
   </head>
   <body
@@ -123,9 +131,9 @@
   class="px-6 py-10 md:px-16 bg-white"
   x-data="{
     categories: {
-      'Black Tiger Shrimp': 'category1.png',
+      'Black Tiger Shrimp': 'category5.jpeg',
       'Scampi': 'category2.jpeg',
-      'Vannamei Shrimp': 'van1.jpg',
+      'Vannamei Shrimp': 'category1.png',
       'Lobster': 'lobster1.jpg',
       'Tuna Varieties': 'tuna1.jpg',
       'Crustaceans': 'crust1.jpg',
@@ -140,10 +148,10 @@
     }
   }"
 >
-  <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-end gap-12">
-    
-    <!-- Sidebar: Categories -->
-    <aside class="w-full md:w-1/3 lg:w-1/4 flex flex-col space-y-4 border-r border-gray-300 pr-6">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-start gap-12">
+
+    <!-- Sidebar: Categories (desktop) -->
+    <aside class="w-full md:w-1/3 lg:w-1/4 flex flex-col space-y-4 border-r border-gray-300 pr-6 hidden md:flex">
       <template x-for="(img, name) in categories" :key="name">
         <button
           @click="selectCategory(name)"
@@ -157,9 +165,21 @@
       </template>
     </aside>
 
+    <!-- Image and Title Container -->
+    <div class="w-full md:w-3/5 lg:w-7/12 flex flex-col items-center">
+      <!-- Title above image -->
+      <div class="mb-6 w-full max-w-full text-center md:text-left">
+        <div class="inline-flex items-center justify-center md:justify-start space-x-2 text-sm font-semibold text-teal-600 uppercase tracking-wide">
+          <span class="text-2xl">🦐</span>
+          <span>Explore</span>
+        </div>
+        <h2 class="mt-1 text-3xl font-bold text-slate-900">Our Products Categories</h2>
+      </div>
+
 <!-- Image Display -->
 <div
-  class="w-full md:w-3/5 lg:w-7/12 flex items-center justify-center relative h-[480px] bg-gray-100 rounded-lg overflow-hidden shadow-xl"
+  class="w-full flex items-center justify-center relative mt-6 flex-grow bg-gray-100 rounded-lg overflow-hidden shadow-xl
+         max-h-[320px] md:max-h-[480px] lg:max-h-[520px]"
   x-transition:enter="transition ease-out duration-500"
   x-transition:enter-start="opacity-0 scale-95"
   x-transition:enter-end="opacity-100 scale-100"
@@ -175,8 +195,29 @@
   />
 </div>
 
+    </div>
+
   </div>
+
+  <!-- Mobile horizontal category scroll bar -->
+  <div 
+    class="flex space-x-4 overflow-x-auto hide-scrollbar border-b border-gray-300 pb-4 mt-8 md:hidden max-w-full"
+  >
+    <template x-for="(img, name) in categories" :key="name">
+      <button
+        @click="selectCategory(name)"
+        :class="selected === name 
+          ? 'text-teal-600 font-semibold border-b-2 border-teal-600 pb-1 whitespace-nowrap' 
+          : 'text-gray-700 whitespace-nowrap'"
+        class="text-sm px-3 py-2 focus:outline-none"
+      >
+        <span x-text="name"></span>
+      </button>
+    </template>
+  </div>
+
 </section>
+
 
     </main>
 
