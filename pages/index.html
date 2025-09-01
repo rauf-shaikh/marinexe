@@ -96,7 +96,7 @@
 >
           <div class="max-w-full md:max-w-2xl space-y-6 md:space-y-5">
             <div
-              class="text-white font-medium text-base md:text-base bg-white bg-opacity-30 rounded-full px-3 md:px-6 py-1 md:py-2 max-w-max mb-0 drop-shadow-md tracking-widest"
+              class="text-white font-medium text-sm md:text-base bg-white bg-opacity-30 rounded-full px-3 md:px-6 py-1 md:py-2 max-w-max mb-0 drop-shadow-md tracking-widest"
             >
               𓆫 PREMIUM SCAMPI & SEAFOOD
             </div>
@@ -140,14 +140,28 @@
       'Fishes': 'unnamed (3).jpg',
       'Cephalopods': 'unnamed (4).jpg',
       'Surimi': 'unnamed (5).jpg',
-      'Molluscs': 'mollusc1.jpg'
+      'Molluscs': 'unnamed.1.jpg'
     },
     selected: 'Scampi',
+    keys() {
+      return Object.keys(this.categories);
+    },
     selectCategory(name) {
       this.selected = name;
+    },
+    nextCategory() {
+      const keys = this.keys();
+      let index = keys.indexOf(this.selected);
+      this.selected = keys[(index + 1) % keys.length];
+    },
+    prevCategory() {
+      const keys = this.keys();
+      let index = keys.indexOf(this.selected);
+      this.selected = keys[(index - 1 + keys.length) % keys.length];
     }
   }"
 >
+
 
   <!-- ✅ Title now appears above everything and is aligned left -->
   <div class="mb-8 max-w-7xl mx-auto text-left">
@@ -176,46 +190,46 @@
       </template>
     </aside>
 
-    <!-- Image Container -->
-    <div class="w-full md:w-3/5 lg:w-7/12 flex flex-col items-center">
-      <div
-        class="w-full flex items-center justify-center relative bg-gray-100 rounded-lg overflow-hidden shadow-xl
-               h-[400px] md:h-[677px] lg:h-[678px]"
-        x-transition:enter="transition ease-out duration-500"
-        x-transition:enter-start="opacity-0 scale-95"
-        x-transition:enter-end="opacity-100 scale-100"
-        x-transition:leave="transition ease-in duration-300"
-        x-transition:leave-start="opacity-100 scale-100"
-        x-transition:leave-end="opacity-0 scale-95"
-        :key="selected"
-      >
-        <img 
-          :src="'../assets/' + categories[selected]" 
-          alt="" 
-          class="w-full h-full object-cover"
-        />
-      </div>
-    </div>
-
-  </div>
-
-
-  <!-- Mobile horizontal category scroll bar -->
-  <div 
-    class="flex space-x-4 overflow-x-auto hide-scrollbar border-b border-gray-300 pb-4 mt-8 md:hidden max-w-full"
+<div class="w-full md:w-3/5 lg:w-7/12 flex flex-col items-center relative">
+  <div
+    class="w-full flex items-center justify-center relative bg-gray-100 rounded-lg overflow-hidden shadow-xl
+           h-[400px] md:h-[677px] lg:h-[678px]"
+    x-transition:enter="transition ease-out duration-500"
+    x-transition:enter-start="opacity-0 scale-95"
+    x-transition:enter-end="opacity-100 scale-100"
+    :key="selected"
   >
-    <template x-for="(img, name) in categories" :key="name">
-      <button
-        @click="selectCategory(name)"
-        :class="selected === name 
-          ? 'text-blue-950 font-semibold border-b-2 border-blue-900 pb-1 whitespace-nowrap' 
-          : 'text-gray-700 whitespace-nowrap'"
-        class="text-sm px-3 py-2 focus:outline-none"
-      >
-        <span x-text="name"></span>
-      </button>
-    </template>
+    <img 
+      :src="'../assets/' + categories[selected]" 
+      alt=""
+      class="w-full h-full object-cover"
+    />
+
+    <!-- Category Name Overlay -->
+    <div 
+      class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white text-lg font-semibold py-2 px-4 text-center"
+      x-text="selected"
+    ></div>
+
+    <!-- Left Arrow (mobile only) -->
+    <button 
+      @click="prevCategory"
+      class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-60 rounded-full p-2 backdrop-blur-md md:hidden"
+      aria-label="Previous Category"
+    >
+      <span class="iconify" data-icon="mdi:chevron-left" data-width="24"></span>
+    </button>
+
+    <!-- Right Arrow (mobile only) -->
+    <button 
+      @click="nextCategory"
+      class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-60 rounded-full p-2 backdrop-blur-md md:hidden"
+      aria-label="Next Category"
+    >
+      <span class="iconify" data-icon="mdi:chevron-right" data-width="24"></span>
+    </button>
   </div>
+</div>
 
 </section>
 
