@@ -1,7 +1,8 @@
 <header
   x-data="{ mobileMenuOpen: false }"
   class="
-    absolute top-[80px]
+        absolute top-[12px]  /* small screens: 12px from top */
+    sm:top-[80px]       /* from sm screens and above: 80px */
     left-4 right-4
     sm:left-6 sm:right-6
     md:left-8 md:right-8
