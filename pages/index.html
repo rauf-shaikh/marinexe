@@ -293,10 +293,10 @@
 
 </section>
 <!-- Horizontal Image Row -->
-<div class="w-full">
+<div class="hidden md:block w-full">
   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-[10px] w-full bg-blue-100 rounded-t-xl">
     <!-- Image 1 -->
-    <div class="overflow-hidden rounded-l-xl shadow-lg flex items-center justify-center bg-white w-full">
+    <div class="overflow-hidden rounded-bl-xl shadow-lg flex items-center justify-center bg-white w-full">
       <img src="../assets/1temp.png" alt="Image 1" class="w-full h-80 md:h-[400px] lg:h-[500px] object-cover" />
     </div>
     <!-- Image 2 -->
@@ -304,45 +304,145 @@
       <img src="../assets/2temp.png" alt="Image 2" class="w-full h-80 md:h-[400px] lg:h-[500px] object-cover" />
     </div>
     <!-- Image 3 -->
-    <div class="overflow-hidden rounded-r-xl shadow-lg flex items-center justify-center bg-white w-full">
+    <div class="overflow-hidden rounded-br-xl shadow-lg flex items-center justify-center bg-white w-full">
       <img src="../assets/about.jpg" alt="Image 3" class="w-full h-80 md:h-[400px] lg:h-[500px] object-cover" />
     </div>
   </div>
 </div>
 
-<div class="w-full px-[20px] pt-10 pb-10 bg-blue-100">
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- 👇 Wrapper with Alpine.js component -->
+<div 
+  x-data="slider()" 
+  x-init="startRotation()" 
+  class="w-full"
+>
+
+<!-- ✅ Mobile Slider: Only visible on small screens -->
+<div class="block md:hidden px-[20px] pt-10 pb-10 text-center relative overflow-hidden h-[500px]">
+  <template x-for="(item, index) in items" :key="index">
+    <div
+      x-show="current === index"
+      x-transition:enter="transform transition ease-in-out duration-500"
+      x-transition:enter-start="translate-x-full opacity-0"
+      x-transition:enter-end="translate-x-0 opacity-100"
+      x-transition:leave="transform transition ease-in-out duration-500 absolute inset-0"
+      x-transition:leave-start="translate-x-0 opacity-100"
+      x-transition:leave-end="-translate-x-full opacity-0"
+      class="absolute inset-0 flex flex-col items-center text-center"
+    >
+<div class="relative w-full aspect-[9/16] mb-6 rounded-xl overflow-hidden shadow-lg">
+
+  <img
+    :src="item.img"
+    class="w-full h-full object-cover"
+    :alt="item.title"
+  />
+
+  <!-- Black overlay with some transparency -->
+  <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+
+  <!-- Description block on top of image -->
+  <div class="absolute bottom-0 left-0 right-0 p-4 text-white text-center">
+    <span class="inline-block mb-2">
+      <span
+        class="iconify"
+        :data-icon="item.icon"
+        data-width="48"
+        style="color:#00bfae;"
+      ></span>
+    </span>
+    <h3 class="text-xl font-bold mb-1" x-text="item.title"></h3>
+    <p class="text-sm font-medium leading-relaxed" x-text="item.desc"></p>
+  </div>
+  
+</div>
+
+    </div>
+  </template>
+</div>
+
+
+  <!-- ✅ Desktop Grid: Visible on md+ -->
+  <div class="hidden md:grid grid-cols-3 gap-8 px-[20px] pt-10 pb-20 bg-blue-100">
     <!-- Description 1 -->
     <div class="flex flex-col items-center text-center">
       <span class="inline-block mb-4">
         <span class="iconify" data-icon="mdi:ferry" data-width="48" style="color:#00bfae;"></span>
       </span>
-      <h3 class="text-xl md:text-2xl font-bold text-blue-900 mb-2">Seafood Express Exporters</h3>
-      <p class="text-gray-600 text-base md:text-lg font-medium">We export high-quality Pane-Shrimp. Prawns, Scampi, Squeal, Cuttlefish and variety of frozen fish.</p>
+      <h3 class="text-xl md:text-xl font-bold text-blue-900 mb-2">
+        Seafood Express Exporters
+      </h3>
+      <p class="text-gray-600 text-base md:text-base font-medium">
+        We export high-quality Pane-Shrimp. Prawns, Scampi, Squeal, Cuttlefish and variety of frozen fish.
+      </p>
     </div>
+
     <!-- Description 2 -->
     <div class="flex flex-col items-center text-center">
       <span class="inline-block mb-4">
         <span class="iconify" data-icon="mdi:fish" data-width="48" style="color:#00bfae;"></span>
       </span>
-      <h3 class="text-xl md:text-2xl font-bold text-blue-900 mb-2">Seafood Express (Marketing Seafood)</h3>
-      <p class="text-gray-600 text-base md:text-lg font-medium">We are specialise in promoting sustainable farming of vannamei shrimp and Giant Freshwater Scampi.</p>
+      <h3 class="text-xl md:text-xl font-bold text-blue-900 mb-2">
+        Seafood Express (Marketing Seafood)
+      </h3>
+      <p class="text-gray-600 text-base md:text-base font-medium">
+        We specialise in promoting sustainable farming of vannamei shrimp and Giant Freshwater Scampi.
+      </p>
     </div>
+
     <!-- Description 3 -->
     <div class="flex flex-col items-center text-center">
       <span class="inline-block mb-4">
         <span class="iconify" data-icon="mdi:fish" data-width="48" style="color:#00bfae;"></span>
       </span>
-      <h3 class="text-xl md:text-2xl font-bold text-blue-900 mb-2">Seafood Express Consultants</h3>
-      <p class="text-gray-600 text-base md:text-lg font-medium">We offer consulting - services for shrimp farm infrastructure and aquaculture operations.</p>
+      <h3 class="text-xl md:text-xl font-bold text-blue-900 mb-2">
+        Seafood Express Consultants
+      </h3>
+      <p class="text-gray-600 text-base md:text-base font-medium">
+        We offer consulting services for shrimp farm infrastructure and aquaculture operations.
+      </p>
     </div>
   </div>
+
 </div>
+
 
     </main>
 
     <!-- Footer placeholder -->
     <div x-ref="footer"></div>
+<script>
+  function slider() {
+    return {
+      current: 0,
+      items: [
+        {
+          img: '../assets/1temp.png',
+          title: 'Seafood Express Exporters',
+          desc: 'We export high-quality Pane-Shrimp. Prawns, Scampi, Squeal, Cuttlefish and variety of frozen fish.',
+          icon: 'mdi:ferry'
+        },
+        {
+          img: '../assets/2temp.png',
+          title: 'Seafood Express (Marketing Seafood)',
+          desc: 'We specialise in promoting sustainable farming of vannamei shrimp and Giant Freshwater Scampi.',
+          icon: 'mdi:fish'
+        },
+        {
+          img: '../assets/about.jpg',
+          title: 'Seafood Express Consultants',
+          desc: 'We offer consulting services for shrimp farm infrastructure and aquaculture operations.',
+          icon: 'mdi:fish'
+        }
+      ],
+      startRotation() {
+        setInterval(() => {
+          this.current = (this.current + 1) % this.items.length;
+        }, 9000);
+      }
+    };
+  }
+</script>
 
     <script>
       function layout() {
