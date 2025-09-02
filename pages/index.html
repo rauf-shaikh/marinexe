@@ -301,11 +301,11 @@
     </div>
     <!-- Image 2 -->
     <div class="overflow-hidden shadow-lg flex items-center justify-center bg-white w-full">
-      <img src="../assets/2temp.png" alt="Image 2" class="w-full h-80 md:h-[400px] lg:h-[500px] object-cover" />
+      <img src="../assets/plant.png" alt="Image 2" class="w-full h-80 md:h-[400px] lg:h-[500px] object-cover" />
     </div>
     <!-- Image 3 -->
     <div class="overflow-hidden rounded-br-xl shadow-lg flex items-center justify-center bg-white w-full">
-      <img src="../assets/about.jpg" alt="Image 3" class="w-full h-80 md:h-[400px] lg:h-[500px] object-cover" />
+      <img src="../assets/boat.png" alt="Image 3" class="w-full h-80 md:h-[400px] lg:h-[500px] object-cover" />
     </div>
   </div>
 </div>
@@ -314,7 +314,7 @@
 <div 
   x-data="slider()" 
   x-init="startRotation()" 
-  class="w-full"
+  class="w-full bg-white"
 >
 
 <!-- ✅ Mobile Slider: Only visible on small screens -->
@@ -363,7 +363,7 @@
 
 
   <!-- ✅ Desktop Grid: Visible on md+ -->
-  <div class="hidden md:grid grid-cols-3 gap-8 px-[20px] pt-10 pb-20 bg-blue-100">
+  <div class="hidden md:grid grid-cols-3 gap-8 px-[20px] pt-10 pb-20 bg-blue-100 rounded-b-xl">
     <!-- Description 1 -->
     <div class="flex flex-col items-center text-center">
       <span class="inline-block mb-4">
@@ -380,7 +380,7 @@
     <!-- Description 2 -->
     <div class="flex flex-col items-center text-center">
       <span class="inline-block mb-4">
-        <span class="iconify" data-icon="mdi:fish" data-width="48" style="color:#00bfae;"></span>
+        <span class="iconify" data-icon="mdi:lifebuoy" data-width="48" style="color:#00bfae;"></span>
       </span>
       <h3 class="text-xl md:text-xl font-bold text-blue-900 mb-2">
         Seafood Express (Marketing Seafood)
@@ -472,13 +472,13 @@
           icon: 'mdi:ferry'
         },
         {
-          img: '../assets/2temp.png',
+          img: '../assets/plant.png',
           title: 'Seafood Express (Marketing Seafood)',
           desc: 'We specialise in promoting sustainable farming of vannamei shrimp and Giant Freshwater Scampi.',
-          icon: 'mdi:fish'
+          icon: 'mdi:lifebuoy'
         },
         {
-          img: '../assets/about.jpg',
+          img: '../assets/boat.png',
           title: 'Seafood Express Consultants',
           desc: 'We offer consulting services for shrimp farm infrastructure and aquaculture operations.',
           icon: 'mdi:fish'
