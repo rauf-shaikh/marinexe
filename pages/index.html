@@ -91,13 +91,17 @@
         <div class="absolute inset-0 bg-black bg-opacity-20"></div>
 
 <div
-  class="relative z-10 flex flex-col items-start text-left 
-  px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 2xl:px-[100px] 
-  pt-52 sm:pt-64 md:pt-72 lg:pt-80 xl:pt-[350px] pb-24"
+  class="relative z-10 flex flex-col 
+  items-center sm:items-start 
+  justify-end
+  text-center sm:text-left 
+  px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 2xl:px-[100px]
+  h-screen pb-32"
 >
+
           <div class="max-w-full md:max-w-2xl space-y-6 md:space-y-5">
             <div
-              class="text-white font-medium text-sm md:text-base bg-white bg-opacity-30 rounded-full px-3 md:px-6 py-1 md:py-2 max-w-max mb-0 drop-shadow-md tracking-widest"
+              class="text-white font-medium text-sm md:text-base bg-white bg-opacity-30 rounded-full px-3 md:px-6 py-1 md:py-2 max-w-max mx-auto sm:mx-0 mb-0 drop-shadow-md tracking-widest"
             >
               𓆫 PREMIUM SCAMPI & SEAFOOD
             </div>
@@ -183,7 +187,7 @@
 <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-start gap-12">
 
   <!-- Sidebar: Categories (desktop) -->
-  <aside class="w-full md:w-1/3 flex flex-col space-y-4 border-r border-gray-300 text-lg pr-6 hidden md:flex bg-blue-200 rounded-xl pl-4 shadow-md">
+  <aside class="w-full md:w-1/3 flex flex-col space-y-4 border-r border-gray-300 text-lg pr-6 hidden md:flex bg-blue-100 rounded-xl pl-4 shadow-md">
     <template x-for="(img, name) in categories" :key="name">
       <button
         @click="selectCategory(name)"
@@ -250,23 +254,27 @@
             x-text="selected"
           ></div>
         </template>
-
-
-      <!-- Navigation Arrows (mobile only) -->
+    </div>
+    
+    <!-- Carousel Navigation (moved below image container on mobile only) -->
+    <div 
+  class="w-full flex justify-end items-center gap-4 mt-4 md:hidden opacity-0 transition-opacity duration-300"
+  x-init="$nextTick(() => $el.classList.remove('opacity-0'))"
+>
       <button 
         @click="prevCategory"
-        class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-60 rounded-full p-2 backdrop-blur-md md:hidden"
+        class="bg-blue-900 text-white rounded-full p-2 backdrop-blur-md shadow"
         aria-label="Previous Category"
       >
-        <span class="iconify" data-icon="mdi:chevron-left" data-width="24"></span>
+        <span class="iconify" data-icon="mdi:chevron-left" data-width="30"></span>
       </button>
 
       <button 
         @click="nextCategory"
-        class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-60 rounded-full p-2 backdrop-blur-md md:hidden"
+        class="bg-blue-900 text-white rounded-full p-2 backdrop-blur-md shadow"
         aria-label="Next Category"
       >
-        <span class="iconify" data-icon="mdi:chevron-right" data-width="24"></span>
+        <span class="iconify" data-icon="mdi:chevron-right" data-width="30"></span>
       </button>
     </div>
   </div>
@@ -328,7 +336,7 @@
       x-transition:leave="transform transition ease-in-out duration-500 absolute inset-0"
       x-transition:leave-start="translate-x-0 opacity-100"
       x-transition:leave-end="-translate-x-full opacity-0"
-      class="absolute inset-0 flex flex-col items-center text-center"
+      class="absolute inset-0 flex flex-col items-center text-center px-6"
     >
 <div class="relative w-full aspect-[9/16] mb-6 rounded-xl overflow-hidden shadow-lg">
 
