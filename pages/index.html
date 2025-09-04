@@ -19,7 +19,8 @@
       rel="stylesheet"
     /><link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
 
-<script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
+<script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js"></script>
+
     <style>
       body {
         font-family: "Poppins", sans-serif;
@@ -40,7 +41,7 @@
   <body
     x-data="layout()"
     x-init="loadTemplates()"
-    class="min-h-screen flex flex-col bg-gray-100"
+    class="min-h-screen flex flex-col bg-white"
   >
     <!-- Header placeholder -->
     <div x-ref="header"></div>
@@ -133,7 +134,7 @@
       </div>
 
 <section 
-  class="px-6 py-20 md:px-6 bg-white"
+  class="px-6 py-20 md:px-6"
   x-data="{
     categories: {
       'Scampi': 'imagecopy.png',
@@ -261,21 +262,22 @@
   class="w-full flex justify-end items-center gap-4 mt-4 md:hidden opacity-0 transition-opacity duration-300"
   x-init="$nextTick(() => $el.classList.remove('opacity-0'))"
 >
-      <button 
-        @click="prevCategory"
-        class="bg-blue-900 text-white rounded-full p-2 backdrop-blur-md shadow"
-        aria-label="Previous Category"
-      >
-        <span class="iconify" data-icon="mdi:chevron-left" data-width="30"></span>
-      </button>
+<button 
+  @click="prevCategory"
+  class="w-12 h-12 flex items-center justify-center bg-blue-900 text-white rounded-full backdrop-blur-md shadow"
+  aria-label="Previous Category"
+>
+  <iconify-icon icon="mdi:chevron-left" width="24"></iconify-icon>
+</button>
 
-      <button 
-        @click="nextCategory"
-        class="bg-blue-900 text-white rounded-full p-2 backdrop-blur-md shadow"
-        aria-label="Next Category"
-      >
-        <span class="iconify" data-icon="mdi:chevron-right" data-width="30"></span>
-      </button>
+<button 
+  @click="nextCategory"
+  class="w-12 h-12 flex items-center justify-center bg-blue-900 text-white rounded-full backdrop-blur-md shadow"
+  aria-label="Next Category"
+>
+  <iconify-icon icon="mdi:chevron-right" width="24"></iconify-icon>
+</button>
+
     </div>
   </div>
 </div>
@@ -304,16 +306,16 @@
 <div class="hidden md:block w-full">
   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-[10px] w-full bg-blue-100 rounded-t-xl">
     <!-- Image 1 -->
-    <div class="overflow-hidden rounded-bl-xl shadow-lg flex items-center justify-center bg-white w-full">
+    <div class="overflow-hidden rounded-bl-xl shadow-lg flex items-center justify-center w-full">
       <img src="../assets/1temp.png" alt="Image 1" class="w-full h-80 md:h-[400px] lg:h-[500px] object-cover" />
     </div>
     <!-- Image 2 -->
-    <div class="overflow-hidden shadow-lg flex items-center justify-center bg-white w-full">
+    <div class="overflow-hidden shadow-lg flex items-center justify-center w-full">
       <img src="../assets/plant.png" alt="Image 2" class="w-full h-80 md:h-[400px] lg:h-[500px] object-cover" />
     </div>
     <!-- Image 3 -->
-    <div class="overflow-hidden rounded-br-xl shadow-lg flex items-center justify-center bg-white w-full">
-      <img src="../assets/boat.png" alt="Image 3" class="w-full h-80 md:h-[400px] lg:h-[500px] object-cover" />
+    <div class="overflow-hidden rounded-br-xl shadow-lg flex items-center justify-center w-full">
+      <img src="../assets/image.png" alt="Image 3" class="w-full h-80 md:h-[400px] lg:h-[500px] object-cover" />
     </div>
   </div>
 </div>
@@ -352,12 +354,11 @@
   <!-- Description block on top of image -->
   <div class="absolute bottom-0 left-0 right-0 p-4 text-white text-center">
     <span class="inline-block mb-2">
-      <span
-        class="iconify"
-        :data-icon="item.icon"
-        data-width="48"
-        style="color:#00bfae;"
-      ></span>
+<iconify-icon
+  :icon="item.icon"
+  width="48"
+  style="color:#00bfae;"
+></iconify-icon>
     </span>
     <h3 class="text-xl font-bold mb-1" x-text="item.title"></h3>
     <p class="text-sm font-medium leading-relaxed" x-text="item.desc"></p>
@@ -375,7 +376,7 @@
     <!-- Description 1 -->
     <div class="flex flex-col items-center text-center">
       <span class="inline-block mb-4">
-        <span class="iconify" data-icon="mdi:ferry" data-width="48" style="color:#00bfae;"></span>
+        <iconify-icon icon="mdi:ferry" style="color:#00bfae;" width="48"></iconify-icon>
       </span>
       <h3 class="text-xl md:text-xl font-bold text-blue-900 mb-2">
         Seafood Express Exporters
@@ -388,7 +389,7 @@
     <!-- Description 2 -->
     <div class="flex flex-col items-center text-center">
       <span class="inline-block mb-4">
-        <span class="iconify" data-icon="mdi:lifebuoy" data-width="48" style="color:#00bfae;"></span>
+                <iconify-icon icon="mdi:lifebuoy" style="color:#00bfae;" width="48"></iconify-icon>
       </span>
       <h3 class="text-xl md:text-xl font-bold text-blue-900 mb-2">
         Seafood Express (Marketing Seafood)
@@ -401,7 +402,7 @@
     <!-- Description 3 -->
     <div class="flex flex-col items-center text-center">
       <span class="inline-block mb-4">
-        <span class="iconify" data-icon="mdi:fish" data-width="48" style="color:#00bfae;"></span>
+                <iconify-icon icon="mdi:fish" style="color:#00bfae;" width="48"></iconify-icon>
       </span>
       <h3 class="text-xl md:text-xl font-bold text-blue-900 mb-2">
         Seafood Express Consultants
@@ -414,7 +415,7 @@
 
 </div>
 
-<section class="px-6 py-20 md:px-6 bg-white">
+<section class="px-6 py-20 md:px-6">
   <div class="max-w-7xl mx-auto space-y-6">
 
     <!-- Row 1: Title and Badge -->
@@ -463,10 +464,10 @@
   </div>
 </section>
 
-<section class="py-20 max-w-7xl mx-auto overflow-x-hidden">
+<section class="pb-20 max-w-7xl mx-auto overflow-x-hidden">
   <!-- Mobile/Tablet: Horizontal scroll -->
-  <div class="overflow-x-auto hide-scrollbar lg:hidden px-6">
-    <div class="flex gap-6 snap-x snap-mandatory">
+  <div class="overflow-x-auto hide-scrollbar lg:hidden px-4">
+    <div class="flex gap-4 snap-x snap-mandatory">
       <!-- Card 1 -->
       <div class="relative flex-shrink-0 w-48 sm:w-52 md:w-64 h-80 rounded-md overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 snap-start">
         <img src="../assets/pexels-stuti-17714805.jpeg" alt="Scampi" class="w-full h-full object-cover" />
@@ -507,7 +508,13 @@
         </div>
       </div>
     </div>
-  </div>
+  </div><div class="lg:hidden flex justify-center mt-6">
+  <svg width="60" height="20" viewBox="0 0 60 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M5 10 Q25 0 45 10" stroke="#999" stroke-width="2" fill="none" />
+    <path d="M45 10 L43 5 M45 10 L40 15" stroke="#999" stroke-width="2" />
+  </svg>
+</div>
+
 
   <!-- Desktop: Grid 4-column layout -->
   <div class="hidden lg:grid grid-cols-4 gap-6">
@@ -579,7 +586,7 @@
           icon: 'mdi:lifebuoy'
         },
         {
-          img: '../assets/boat.png',
+          img: '../assets/image.png',
           title: 'Seafood Express Consultants',
           desc: 'We offer consulting services for shrimp farm infrastructure and aquaculture operations.',
           icon: 'mdi:fish'
@@ -588,7 +595,7 @@
       startRotation() {
         setInterval(() => {
           this.current = (this.current + 1) % this.items.length;
-        }, 9000);
+        }, 3000);
       }
     };
   }
