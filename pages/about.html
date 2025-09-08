@@ -18,7 +18,7 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
       rel="stylesheet"
     /><link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
-<script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
+<script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js"></script>
     <style>
       body {
         font-family: "Poppins", sans-serif;
@@ -28,7 +28,7 @@
   <body
     x-data="layout()"
     x-init="loadTemplates()"
-    class="min-h-screen flex flex-col bg-gray-100"
+    class="min-h-screen flex flex-col bg-white"
   >
     <!-- Header placeholder -->
     <div x-ref="header"></div>
@@ -208,11 +208,172 @@
 </section>
 
 
+<!-- Horizontal Image Row -->
+<div class="hidden md:block w-full">
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-[10px] w-full bg-blue-100 rounded-t-xl">
+    <!-- Image 1 -->
+    <div class="overflow-hidden rounded-bl-xl shadow-lg flex items-center justify-center w-full">
+      <img src="../assets/1temp.png" alt="Image 1" class="w-full h-80 md:h-[400px] lg:h-[500px] object-cover" />
+    </div>
+    <!-- Image 2 -->
+    <div class="overflow-hidden shadow-lg flex items-center justify-center w-full">
+      <img src="../assets/plant.png" alt="Image 2" class="w-full h-80 md:h-[400px] lg:h-[500px] object-cover" />
+    </div>
+    <!-- Image 3 -->
+    <div class="overflow-hidden rounded-br-xl shadow-lg flex items-center justify-center w-full">
+      <img src="../assets/boat.png" alt="Image 3" class="w-full h-80 md:h-[400px] lg:h-[500px] object-cover" />
+    </div>
+  </div>
+</div>
 
+<!-- 👇 Wrapper with Alpine.js component -->
+<div 
+  x-data="slider()" 
+  x-init="startRotation()" 
+  class="w-full bg-white"
+>
+
+<!-- ✅ Mobile Slider: Only visible on small screens -->
+<div class="block md:hidden px-[20px] pt-10 pb-10 text-center relative overflow-hidden h-[500px] bg-white">
+  <template x-for="(item, index) in items" :key="index">
+    <div
+      x-show="current === index"
+      x-transition:enter="transform transition ease-in-out duration-500"
+      x-transition:enter-start="translate-x-full opacity-0"
+      x-transition:enter-end="translate-x-0 opacity-100"
+      x-transition:leave="transform transition ease-in-out duration-500 absolute inset-0"
+      x-transition:leave-start="translate-x-0 opacity-100"
+      x-transition:leave-end="-translate-x-full opacity-0"
+      class="absolute inset-0 flex flex-col items-center text-center px-6"
+    >
+<div class="relative w-full aspect-[9/16] mb-6 rounded-xl overflow-hidden shadow-lg">
+
+  <img
+    :src="item.img"
+    class="w-full h-full object-cover"
+    :alt="item.title"
+  />
+
+  <!-- Black overlay with some transparency -->
+  <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+
+  <!-- Description block on top of image -->
+  <div class="absolute bottom-0 left-0 right-0 p-4 text-white text-center">
+    <span class="inline-block mb-2">
+<iconify-icon
+  :icon="item.icon"
+  width="48"
+  style="color:#00bfae;"
+></iconify-icon>
+    </span>
+    <h3 class="text-xl font-bold mb-1" x-text="item.title"></h3>
+    <p class="text-sm font-medium leading-relaxed" x-text="item.desc"></p>
+  </div>
+  
+</div>
+
+    </div>
+  </template>
+</div>
+
+
+  <!-- ✅ Desktop Grid: Visible on md+ -->
+  <div class="hidden md:grid grid-cols-3 gap-8 px-[20px] pt-10 pb-20 bg-blue-100 rounded-b-xl">
+    <!-- Description 1 -->
+    <div class="flex flex-col items-center text-center">
+      <span class="inline-block mb-4">
+        <iconify-icon icon="mdi:ferry" style="color:#00bfae;" width="48"></iconify-icon>
+      </span>
+      <h3 class="text-xl md:text-xl font-bold text-blue-900 mb-2">
+        Seafood Express Exporters
+      </h3>
+      <p class="text-gray-600 text-base md:text-base font-medium">
+        We export high-quality Pane-Shrimp. Prawns, Scampi, Squeal, Cuttlefish and variety of frozen fish.
+      </p>
+    </div>
+
+    <!-- Description 2 -->
+    <div class="flex flex-col items-center text-center">
+      <span class="inline-block mb-4">
+                <iconify-icon icon="mdi:lifebuoy" style="color:#00bfae;" width="48"></iconify-icon>
+      </span>
+      <h3 class="text-xl md:text-xl font-bold text-blue-900 mb-2">
+        Seafood Express (Marketing Seafood)
+      </h3>
+      <p class="text-gray-600 text-base md:text-base font-medium">
+        We specialise in promoting sustainable farming of vannamei shrimp and Giant Freshwater Scampi.
+      </p>
+    </div>
+
+    <!-- Description 3 -->
+    <div class="flex flex-col items-center text-center">
+      <span class="inline-block mb-4">
+                <iconify-icon icon="mdi:fish" style="color:#00bfae;" width="48"></iconify-icon>
+      </span>
+      <h3 class="text-xl md:text-xl font-bold text-blue-900 mb-2">
+        Seafood Express Consultants
+      </h3>
+      <p class="text-gray-600 text-base md:text-base font-medium">
+        We offer consulting services for shrimp farm infrastructure and aquaculture operations.
+      </p>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- About page Section 4-->
+
+<section class="px-6 pt-20 md:px-6">
+  <div class="mb-12 max-w-7xl mx-auto text-center">
+    <div class="inline-flex items-center justify-center space-x-2 text-sm font-semibold text-blue-900 uppercase tracking-wide bg-white bg-opacity-30 rounded-full px-3 border border-gray-300 py-1">
+      <span class="text-xl">𓆫</span>
+      <span>Passion. Purpose. Progress.</span>
+    </div>
+    <h2 
+      class="mt-5 text-[2.5rem] text-blue-900 uppercase leading-none"
+      style="font-family: 'Anton', sans-serif; letter-spacing: 0.7px;"
+    >
+      Our Story, Your Seafood
+    </h2>
+  </div>
+</section>
     </main>
 
     <!-- Footer placeholder -->
     <div x-ref="footer"></div>
+    <script>
+  function slider() {
+    return {
+      current: 0,
+      items: [
+        {
+          img: '../assets/1temp.png',
+          title: 'Seafood Express Exporters',
+          desc: 'We export high-quality Pane-Shrimp. Prawns, Scampi, Squeal, Cuttlefish and variety of frozen fish.',
+          icon: 'mdi:ferry'
+        },
+        {
+          img: '../assets/plant.png',
+          title: 'Seafood Express (Marketing Seafood)',
+          desc: 'We specialise in promoting sustainable farming of vannamei shrimp and Giant Freshwater Scampi.',
+          icon: 'mdi:lifebuoy'
+        },
+        {
+          img: '../assets/boat.png',
+          title: 'Seafood Express Consultants',
+          desc: 'We offer consulting services for shrimp farm infrastructure and aquaculture operations.',
+          icon: 'mdi:fish'
+        }
+      ],
+      startRotation() {
+        setInterval(() => {
+          this.current = (this.current + 1) % this.items.length;
+        }, 3000);
+      }
+    };
+  }
+</script>
 
     <script>
       function layout() {
