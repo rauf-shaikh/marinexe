@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Processing - Marinexe</title>
+    <link rel="icon" href="https://marinexe.blogspot.com/favicon.ico" />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Alpine.js CDN -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js"></script>
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+      }
+    </style>
+  </head>
+  <body
+    x-data="layout()"
+    x-init="loadTemplates()"
+    class="min-h-screen flex flex-col bg-white"
+  >
+    <!-- Header placeholder -->
+    <div x-ref="header"></div>
+    <main class="flex-grow">
+      <!-- Hero Section with Background Image -->
+      <div class="relative h-[70vh] w-full overflow-hidden">
+        <img
+          src="../assets/about.jpg"
+          alt="About Image"
+          class="absolute top-0 left-0 w-full h-full object-cover"
+        />
+        <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+
+        <!-- Optional overlay content -->
+        <div class="relative z-10 h-full flex items-center justify-center">
+          <div
+            class="absolute inset-x-0 bottom-0 flex flex-col items-start z-10 text-left pl-4 sm:pl-6 md:pl-8 lg:pl-16 xl:pl-24 2xl:pl-[100px] pr-4 sm:pr-6 md:pr-8 lg:pr-16 xl:pr-24 2xl:pr-[100px] pb-16 md:pb-12 lg:pb-8"
+          >
+            <div class="max-w-full md:max-w-2xl space-y-6 md:space-y-7">
+              <h1
+                class="text-white text-3xl md:text-5xl font-semibold drop-shadow-lg leading-tight lg:whitespace-nowrap"
+              >
+                STATE-OF-THE-ART SEAFOOD PROCESSING & STORAGE
+              </h1>
+
+              <p
+                class="text-white text-lg md:text-lg font-medium drop-shadow leading-relaxed max-w-2xl"
+              >
+                From Ocean To Table — Maintaining Freshness, Hygiene, And Global
+                Standards In Every Step.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Processing page Section 1 -->
+      <section class="px-6 py-20 md:px-6">
+        <div class="max-w-7xl mx-auto text-center">
+          <div
+            class="inline-flex items-center justify-center space-x-2 text-sm font-semibold text-blue-900 uppercase tracking-wide bg-white bg-opacity-30 rounded-full px-3 border border-gray-300 py-1"
+          >
+            <span class="text-xl">𓆫</span>
+            <span>our process</span>
+          </div>
+
+          <h2
+            class="mt-5 text-[2.5rem] text-blue-900 uppercase leading-none"
+            style="font-family: 'Anton', sans-serif; letter-spacing: 0.7px"
+          >
+            Our step-by-step processing excellence
+          </h2>
+          <p
+            class="mt-5 text-gray-600 mx-auto text-base md:text-lg font-medium leading-relaxed max-w-full md:max-w-3xl lg:max-w-4xl"
+          >
+            Follow the journey from fresh catch to export-ready seafood. Our
+            six-stage process ensures every product meets the highest standards
+            of freshness, hygiene, and quality before it reaches global
+            markets.t-quality fish and seafood varieties
+          </p>
+        </div>
+      </section>
+      <section class="bg-white py-16">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      
+      <!-- Step 01 -->
+      <div class="bg-blue-50 rounded-lg pl-12 pr-10 pb-10 pt-12 shadow-md min-h-[250px]">
+        <h3 class="text-xl font-bold text-teal-600 mb-2">01</h3>
+        <h4 class="text-lg font-semibold text-blue-900 mb-1">Catch Sourcing</h4>
+        <p class="text-sm text-gray-600">
+          Partnering with certified fishermen across Indian coasts for fresh raw materials.
+        </p>
+      </div>
+
+      <!-- Step 02 -->
+      <div class="bg-blue-50 rounded-lg pl-12 pr-10 pb-10 pt-12 shadow-md min-h-[250px]">
+        <h3 class="text-xl font-bold text-teal-600 mb-2">02</h3>
+        <h4 class="text-lg font-semibold text-blue-900 mb-1">Preliminary Inspection</h4>
+        <p class="text-sm text-gray-600">
+          Initial quality checks conducted at collection centers with trained supervisors.
+        </p>
+      </div>
+
+      <!-- Step 03 -->
+      <div class="bg-blue-50 rounded-lg pl-12 pr-10 pb-10 pt-12 shadow-md min-h-[250px]">
+        <h3 class="text-xl font-bold text-teal-600 mb-2">03</h3>
+        <h4 class="text-lg font-semibold text-blue-900 mb-1">Cleaning & Sorting</h4>
+        <p class="text-sm text-gray-600">
+          Hygienic cleaning, size grading, and type-wise sorting at HACCP-certified plants.
+        </p>
+      </div>
+
+      <!-- Step 04 -->
+      <div class="bg-blue-50 rounded-lg pl-12 pr-10 pb-10 pt-12 shadow-md min-h-[250px]">
+        <h3 class="text-xl font-bold text-teal-600 mb-2">04</h3>
+        <h4 class="text-lg font-semibold text-blue-900 mb-1">Processing & Cutting</h4>
+        <p class="text-sm text-gray-600">
+          Portioning, descaling, deveining (for shrimp), and filleting using automated tools.
+        </p>
+      </div>
+
+      <!-- Step 05 -->
+      <div class="bg-blue-50 rounded-lg pl-12 pr-10 pb-10 pt-12 shadow-md min-h-[250px]">
+        <h3 class="text-xl font-bold text-teal-600 mb-2">05</h3>
+        <h4 class="text-lg font-semibold text-blue-900 mb-1">Freezing</h4>
+        <p class="text-sm text-gray-600">
+          IQF, Blast Freezing, and Plate Freezing techniques to lock freshness instantly.
+        </p>
+      </div>
+
+      <!-- Step 06 -->
+      <div class="bg-blue-50 rounded-lg pl-12 pr-10 pb-10 pt-12 shadow-md min-h-[250px]">
+        <h3 class="text-xl font-bold text-teal-600 mb-2">06</h3>
+        <h4 class="text-lg font-semibold text-blue-900 mb-1">Packing</h4>
+        <p class="text-sm text-gray-600">
+          Vacuum sealing and export-grade packaging under controlled conditions.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+      
+    </main>
+
+    <!-- Footer placeholder -->
+    <div x-ref="footer"></div>
+
+    <script>
+      function layout() {
+        return {
+          async loadTemplates() {
+            const headerRes = await fetch("../templates/header.html");
+            const headerHtml = await headerRes.text();
+            this.$refs.header.innerHTML = headerHtml;
+            Alpine.initTree(this.$refs.header);
+
+            const footerRes = await fetch("../templates/footer.html");
+            const footerHtml = await footerRes.text();
+            this.$refs.footer.innerHTML = footerHtml;
+            Alpine.initTree(this.$refs.footer);
+          },
+        };
+      }
+    </script>
+  </body>
+</html>
