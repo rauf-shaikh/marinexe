@@ -1,0 +1,8 @@
+# Ignore index.html
+index.html
+
+# Ignore rough.html
+rough.html
+
+# Ignore macOS system file
+.DS_Store
