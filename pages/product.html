@@ -89,249 +89,185 @@
 
       <!-- Product page Section 2 -->
       <section class="px-6 py-20 md:px-8 lg:px-12">
-        <div class="max-w-7xl mx-auto">
-
-<div
-  x-data="{ selected: 'All Products' }"
-  class="-mx-6 md:-mx-8 lg:-mx-12 overflow-x-auto sm:overflow-visible -mx-2 mb-12 no-scrollbar"
->
-  <div
-    class="flex flex-nowrap sm:flex-wrap gap-2 sm:gap-4 justify-start sm:justify-center px-6 md:px-8 lg:px-12"
-  >
-    <span
-      @click="selected = 'All Products'"
-      :class="selected === 'All Products' ? 'bg-blue-100 text-blue-900' : 'bg-gray-100 text-gray-600'"
-      class="whitespace-nowrap px-4 py-2 rounded-full text-sm md:text-base font-medium cursor-pointer"
-    >
-      All Products
-    </span>
-    <span
-      @click="selected = 'Best Seller'"
-      :class="selected === 'Best Seller' ? 'bg-blue-100 text-blue-900' : 'bg-gray-100 text-gray-600'"
-      class="whitespace-nowrap px-4 py-2 rounded-full text-sm md:text-base font-medium cursor-pointer"
-    >
-      Best Sellers
-    </span>
-    <span
-      @click="selected = 'In High Demand'"
-      :class="selected === 'In High Demand' ? 'bg-blue-100 text-blue-900' : 'bg-gray-100 text-gray-600'"
-      class="whitespace-nowrap px-4 py-2 rounded-full text-sm md:text-base font-medium cursor-pointer"
-    >
-      In High Demand
-    </span>
-    <span
-      @click="selected = 'Most Exported'"
-      :class="selected === 'Most Exported' ? 'bg-blue-100 text-blue-900' : 'bg-gray-100 text-gray-600'"
-      class="whitespace-nowrap px-4 py-2 rounded-full text-sm md:text-base font-medium cursor-pointer"
-    >
-      Most Exported
-    </span>
-  </div>
-</div>
-
+        <div class="max-w-7xl mx-auto" x-data="productStore()">
+          
+          <!-- Filter Buttons -->
+          <div class="overflow-x-auto sm:overflow-visible mb-6 no-scrollbar">
+            <div class="flex flex-nowrap sm:flex-wrap gap-2 sm:gap-4 justify-start sm:justify-center">
+              <template x-for="filter in filters" :key="filter">
+                <button
+                  @click="selected = filter"
+                  :aria-pressed="selected === filter"
+                  :class="selected === filter 
+                    ? 'bg-blue-100 text-blue-900' 
+                    : 'bg-gray-100 text-gray-600'"
+                  class="whitespace-nowrap px-4 py-2 rounded-full text-sm md:text-base font-medium cursor-pointer transition-colors duration-200"
+                >
+                  <span x-text="filter"></span>
+                </button>
+              </template>
+            </div>
+          </div>
 
           <div class="grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-            <!-- Product Card: Scampi -->
-            <div class="bg-blue-100 shadow-md rounded-lg overflow-hidden transition-transform duration-300 hover:scale-105 cursor-pointer">
-              <img src="../assets/product-page/product-img1.jpeg" alt="Scampi" class="w-full h-48 object-cover">
-              <div class="p-4">
-                <h3 class="text-lg font-semibold text-blue-900">Scampi</h3>
-                <p class="text-sm text-gray-600 mt-2">Freshwater scampi with delicate flavor, sourced from trusted farms.</p>
+            <template x-for="product in allProductsSorted" :key="product.name">
+              <div
+                :class="product.categories.includes(selected) ? 
+                  'bg-green-100 shadow-md rounded-lg overflow-hidden transition-transform duration-300 hover:scale-105 cursor-pointer' 
+                  : 'bg-blue-100 shadow-md rounded-lg overflow-hidden transition-transform duration-300 hover:scale-105 cursor-pointer'"
+              >
+                <img
+                  :src="product.image"
+                  :alt="product.name"
+                  loading="lazy"
+                  class="w-full h-48 object-cover"
+                />
+                <div class="p-4">
+                  <h3 class="text-lg font-semibold" :class="product.categories.includes(selected) ? 'text-gray-800' : 'text-blue-900'" x-text="product.name"></h3>
+                  <p class="text-sm text-gray-600 mt-2" x-text="product.description"></p>
+                </div>
               </div>
-            </div>
-
-            <!-- Product Card: Black Tiger Shrimp -->
-            <div class="bg-blue-100 shadow-md rounded-lg overflow-hidden transition-transform duration-300 hover:scale-105 cursor-pointer">
-
-              <img src="../assets/product-page/product-img2.jpeg" alt="Black Tiger Shrimp" class="w-full h-48 object-cover">
-              <div class="p-4">
-                <h3 class="text-lg font-semibold text-blue-900">Black Tiger Shrimp</h3>
-                <p class="text-sm text-gray-600 mt-2">Premium wild-caught shrimp known for its size and taste.</p>
-              </div>
-            </div>
-
-            <!-- Product Card: Vannamei Shrimp -->
-            <div class="bg-blue-100 shadow-md rounded-lg overflow-hidden transition-transform duration-300 hover:scale-105 cursor-pointer">
-
-              <img src="../assets/product-page/product-img3.png" alt="Vannamei Shrimp" class="w-full h-48 object-cover">
-              <div class="p-4">
-                <h3 class="text-lg font-semibold text-blue-900">Vannamei Shrimp</h3>
-                <p class="text-sm text-gray-600 mt-2">Farmed white shrimp — processed and exported globally.</p>
-              </div>
-            </div>
-
-            <!-- Product Card: Tuna -->
-            <div class="bg-blue-100 shadow-md rounded-lg overflow-hidden transition-transform duration-300 hover:scale-105 cursor-pointer">
-
-              <img src="../assets/product-page/product-img4.png" alt="Tuna" class="w-full h-48 object-cover">
-              <div class="p-4">
-                <h3 class="text-lg font-semibold text-blue-900">Tuna</h3>
-                <p class="text-sm text-gray-600 mt-2">Cleaned and processed tuna, export-ready.</p>
-              </div>
-            </div>
-
-            <!-- Product Card: Cuttle Fish -->
-            <div class="bg-blue-100 shadow-md rounded-lg overflow-hidden transition-transform duration-300 hover:scale-105 cursor-pointer">
-
-              <img src="../assets/product-page/product-img5.png" alt="Cuttle Fish" class="w-full h-48 object-cover">
-              <div class="p-4">
-                <h3 class="text-lg font-semibold text-blue-900">Cuttle Fish</h3>
-                <p class="text-sm text-gray-600 mt-2">Export-grade, cleaned and frozen for global delivery.</p>
-              </div>
-            </div>
-
-            <!-- Product Card: Semi Needle Loligo Squid -->
-            <div class="bg-blue-100 shadow-md rounded-lg overflow-hidden transition-transform duration-300 hover:scale-105 cursor-pointer">
-
-              <img src="../assets/product-page/product-img6.png" alt="Semi Needle Loligo Squid" class="w-full h-48 object-cover">
-              <div class="p-4">
-                <h3 class="text-lg font-semibold text-blue-900">Semi Needle Loligo Squid</h3>
-                <p class="text-sm text-gray-600 mt-2">Premium semi-needle squid, frozen and export ready.</p>
-              </div>
-            </div>
-
-            <!-- Product Card: Loligo Squid -->
-            <div class="bg-blue-100 shadow-md rounded-lg overflow-hidden transition-transform duration-300 hover:scale-105 cursor-pointer">
-
-              <img src="../assets/product-page/product-img7.png" alt="Loligo Squid" class="w-full h-48 object-cover">
-              <div class="p-4">
-                <h3 class="text-lg font-semibold text-blue-900">Loligo Squid</h3>
-                <p class="text-sm text-gray-600 mt-2">Frozen whole squid, popular in international markets.</p>
-              </div>
-            </div>
-
-            <!-- Product Card: Ribbon Fish -->
-            <div class="bg-blue-100 shadow-md rounded-lg overflow-hidden transition-transform duration-300 hover:scale-105 cursor-pointer">
-
-              <img src="../assets/product-page/product-img8.png" alt="Ribbon Fish" class="w-full h-48 object-cover">
-              <div class="p-4">
-                <h3 class="text-lg font-semibold text-blue-900">Ribbon Fish</h3>
-                <p class="text-sm text-gray-600 mt-2">Wild-caught, frozen ribbon fish for export demand.</p>
-              </div>
-            </div>
-
-            <!-- Product Card: Catfish -->
-            <div class="bg-blue-100 shadow-md rounded-lg overflow-hidden transition-transform duration-300 hover:scale-105 cursor-pointer">
-
-              <img src="../assets/product-page/product-img9.png" alt="Catfish (Frozen)" class="w-full h-48 object-cover">
-              <div class="p-4">
-                <h3 class="text-lg font-semibold text-blue-900">Catfish (Frozen)</h3>
-                <p class="text-sm text-gray-600 mt-2">Farm-raised and processed catfish for export.</p>
-              </div>
-            </div>
-
-            <!-- Product Card: Queen Fish -->
-            <div class="bg-blue-100 shadow-md rounded-lg overflow-hidden transition-transform duration-300 hover:scale-105 cursor-pointer">
-
-              <img src="../assets/product-page/product-img10.png" alt="Queen Fish (Frozen)" class="w-full h-48 object-cover">
-              <div class="p-4">
-                <h3 class="text-lg font-semibold text-blue-900">Queen Fish (Frozen)</h3>
-                <p class="text-sm text-gray-600 mt-2">Frozen queen fish, processed for overseas buyers.</p>
-              </div>
-            </div>
-
-            <!-- Product Card: Yellow Croaker -->
-            <div class="bg-blue-100 shadow-md rounded-lg overflow-hidden transition-transform duration-300 hover:scale-105 cursor-pointer">
-
-              <img src="../assets/product-page/product-img11.png" alt="Yellow Croaker (Frozen)" class="w-full h-48 object-cover">
-              <div class="p-4">
-                <h3 class="text-lg font-semibold text-blue-900">Yellow Croaker (Frozen)</h3>
-                <p class="text-sm text-gray-600 mt-2">High-demand yellow croaker, frozen for global trade.</p>
-              </div>
-            </div>
-
-            <!-- Product Card: Crab -->
-            <div class="bg-blue-100 shadow-md rounded-lg overflow-hidden transition-transform duration-300 hover:scale-105 cursor-pointer">
-
-              <img src="../assets/product-page/product-img12.png" alt="Crab" class="w-full h-48 object-cover">
-              <div class="p-4">
-                <h3 class="text-lg font-semibold text-blue-900">Crab</h3>
-                <p class="text-sm text-gray-600 mt-2">Freshly frozen crab, sourced for global seafood markets.</p>
-              </div>
-            </div>
-
-            <!-- Product Card: Lobster -->
-            <div class="bg-blue-100 shadow-md rounded-lg overflow-hidden transition-transform duration-300 hover:scale-105 cursor-pointer">
-
-              <img src="../assets/product-page/product-img13.png" alt="Lobster (Panulirus Polyphagus)" class="w-full h-48 object-cover">
-              <div class="p-4">
-                <h3 class="text-lg font-semibold text-blue-900">Lobster (Panulirus Polyphagus)</h3>
-                <p class="text-sm text-gray-600 mt-2">Premium spiny lobster, frozen and ready for export.</p>
-              </div>
-            </div>
-
-            <!-- Product Card: Yellowfin Tuna -->
-            <div class="bg-blue-100 shadow-md rounded-lg overflow-hidden transition-transform duration-300 hover:scale-105 cursor-pointer">
-
-              <img src="../assets/product-page/product-img14.jpg" alt="Yellowfin Tuna" class="w-full h-48 object-cover">
-              <div class="p-4">
-                <h3 class="text-lg font-semibold text-blue-900">Yellowfin Tuna</h3>
-                <p class="text-sm text-gray-600 mt-2">Ocean-caught yellowfin, frozen for international trade.</p>
-              </div>
-            </div>
-
-            <!-- Product Card: Dorab (Wolf Herring) -->
-            <div class="bg-blue-100 shadow-md rounded-lg overflow-hidden transition-transform duration-300 hover:scale-105 cursor-pointer">
-
-              <img src="../assets/product-page/product-img15.png" alt="Dorab (Wolf Herring)" class="w-full h-48 object-cover">
-              <div class="p-4">
-                <h3 class="text-lg font-semibold text-blue-900">Dorab (Wolf Herring)</h3>
-                <p class="text-sm text-gray-600 mt-2">Frozen dorab herring, popular in export destinations.</p>
-              </div>
-            </div>
-
-            <!-- Product Card: Seawater Shrimps -->
-            <div class="bg-blue-100 shadow-md rounded-lg overflow-hidden transition-transform duration-300 hover:scale-105 cursor-pointer">
-
-              <img src="../assets/product-page/product-img16.png" alt="Seawater Shrimps" class="w-full h-48 object-cover">
-              <div class="p-4">
-                <h3 class="text-lg font-semibold text-blue-900">Seawater Shrimps</h3>
-                <p class="text-sm text-gray-600 mt-2">Wild-caught shrimps, frozen for premium export markets.</p>
-              </div>
-            </div>
-
+            </template>
           </div>
-          <div
-  x-data="{ selected: 1, maxPage: 3 }"
-  class="flex space-x-2 justify-center mt-10"
->
-  <span
-    @click="selected = 1"
-    :class="selected === 1 ? 'bg-blue-100 text-blue-900' : 'bg-gray-100 text-gray-600'"
-    class="cursor-pointer px-4 py-2 rounded-full text-sm font-medium"
-  >
-    1
-  </span>
-  <span
-    @click="selected = 2"
-    :class="selected === 2 ? 'bg-blue-100 text-blue-900' : 'bg-gray-100 text-gray-600'"
-    class="cursor-pointer px-4 py-2 rounded-full text-sm font-medium"
-  >
-    2
-  </span>
-  <span
-    @click="selected = 3"
-    :class="selected === 3 ? 'bg-blue-100 text-blue-900' : 'bg-gray-100 text-gray-600'"
-    class="cursor-pointer px-4 py-2 rounded-full text-sm font-medium"
-  >
-    3
-  </span>
-  <span
-    @click="selected < maxPage ? selected++ : null"
-    :class="selected === maxPage ? 'bg-gray-300 text-gray-400 cursor-not-allowed' : 'bg-gray-100 text-gray-600 cursor-pointer'"
-    class="px-4 py-2 rounded-full text-sm font-medium"
-  >
-    Next
-  </span>
-</div>
 
         </div>
       </section>
-
     </main>
 
     <!-- Footer placeholder -->
     <div x-ref="footer"></div>
+    <script>
+      function productStore() {
+        return {
+          selected: 'All Products',
+
+          filters: ['All Products', 'Best Seller', 'In High Demand', 'Most Exported'],
+          products: [
+            {
+              name: 'Scampi',
+              categories: ['In High Demand', 'Best Seller'],
+              image: '../assets/product-page/product-img1.jpeg',
+              description: 'Freshwater scampi with delicate flavor, sourced from trusted farms.',
+            },
+            {
+              name: 'Black Tiger Shrimp',
+              categories: ['Best Seller'],
+              image: '../assets/product-page/product-img2.jpeg',
+              description: 'Premium wild-caught shrimp known for its size and taste.',
+            },
+            {
+              name: 'Vannamei Shrimp',
+              categories: ['Most Exported'],
+              image: '../assets/product-page/product-img3.png',
+              description: 'Farmed white shrimp — processed and exported globally.',
+            },
+            {
+              name: 'Tuna',
+              categories: ['Most Exported'],
+              image: '../assets/product-page/product-img4.png',
+              description: 'Cleaned and processed tuna, export-ready.',
+            },
+            {
+              name: 'Cuttle Fish',
+              categories: ['In High Demand'],
+              image: '../assets/product-page/product-img5.png',
+              description: 'Export-grade, cleaned and frozen for global delivery.',
+            },
+            {
+              name: 'Semi Needle Loligo Squid',
+              categories: ['In High Demand'],
+              image: '../assets/product-page/product-img6.png',
+              description: 'Premium semi-needle squid, frozen and export ready.',
+            },
+            {
+              name: 'Loligo Squid',
+              categories: ['Best Seller', 'In High Demand'],
+              image: '../assets/product-page/product-img7.png',
+              description: 'Frozen whole squid, popular in international markets.',
+            },
+            {
+              name: 'Ribbon Fish',
+              categories: ['Most Exported'],
+              image: '../assets/product-page/product-img8.png',
+              description: 'Wild-caught, frozen ribbon fish for export demand.',
+            },
+            {
+              name: 'Catfish (Frozen)',
+              categories: ['Most Exported'],
+              image: '../assets/product-page/product-img9.png',
+              description: 'Farm-raised and processed catfish for export.',
+            },
+            {
+              name: 'Queen Fish (Frozen)',
+              categories: ['Most Exported'],
+              image: '../assets/product-page/product-img10.png',
+              description: 'Frozen queen fish, processed for overseas buyers.',
+            },
+            {
+              name: 'Yellow Croaker (Frozen)',
+              categories: ['Most Exported'],
+              image: '../assets/product-page/product-img11.png',
+              description: 'High-demand yellow croaker, frozen for global trade.',
+            },
+            {
+              name: 'Crab',
+              categories: ['In High Demand'],
+              image: '../assets/product-page/product-img12.png',
+              description: 'Freshly frozen crab, sourced for global seafood markets.',
+            },
+            {
+              name: 'Lobster (Panulirus Polyphagus)',
+              categories: ['Best Seller', 'In High Demand'],
+              image: '../assets/product-page/product-img13.png',
+              description: 'Premium spiny lobster, frozen and ready for export.',
+            },
+            {
+              name: 'Yellowfin Tuna',
+              categories: ['Most Exported', 'In High Demand'],
+              image: '../assets/product-page/product-img14.jpg',
+              description: 'Ocean-caught yellowfin, frozen for international trade.',
+            },
+            {
+              name: 'Dorab (Wolf Herring)',
+              categories: ['Most Exported'],
+              image: '../assets/product-page/product-img15.png',
+              description: 'Frozen dorab herring, popular in export destinations.',
+            },
+            {
+              name: 'Seawater Shrimps',
+              categories: ['In High Demand'],
+              image: '../assets/product-page/product-img16.png',
+              description: 'Wild-caught shrimps, frozen for premium export markets.',
+            },
+          ],
+
+          get highlightedProducts() {
+            if (this.selected === 'All Products') return this.products;
+            return this.products.filter(p => p.categories.includes(this.selected));
+          },
+
+          get otherProducts() {
+            if (this.selected === 'All Products') return [];
+            return this.products.filter(p => !p.categories.includes(this.selected));
+          },
+
+          get allProductsSorted() {
+            if (this.selected === 'All Products') return this.products;
+
+            const highlighted = this.products.filter(p =>
+              Array.isArray(p.categories) ? p.categories.includes(this.selected) : p.categories === this.selected
+            );
+
+            const others = this.products.filter(p =>
+              Array.isArray(p.categories) ? !p.categories.includes(this.selected) : p.categories !== this.selected
+            );
+
+            return [...highlighted, ...others];
+          }
+
+        }
+      }
+    </script>
 
     <script>
       function layout() {
