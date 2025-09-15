@@ -1,6 +1,6 @@
 <header
   x-data="{ mobileMenuOpen: false }"
-  class="
+  class="max-w-7xl mx-auto 
         absolute top-[12px]  /* small screens: 12px from top */
     md:top-[80px]       /* from sm screens and above: 80px */
     left-4 right-4
@@ -12,13 +12,13 @@
     z-30 bg-white/20 backdrop-blur-md text-white shadow-md rounded-xl
   "
 >
-  <div class="w-full max-w-full mx-auto px-4 h-[72px] flex justify-between items-center overflow-hidden">
+  <div class="w-full max-w-7xl mx-auto px-4 h-[72px] flex justify-between items-center overflow-hidden">
 
     <!-- Logo -->
     <img src="../assets/home-page/logo.png" alt="Seafood Express Logo" class="h-full max-h-[72px] w-auto object-contain" />
 
     <!-- Short Nav (lg to below 2xl) -->
-    <nav class="hidden lg:flex 2xl:hidden space-x-4 xl:space-x-8 text-[0.92rem] font-medium items-center flex-nowrap min-w-0">
+    <nav class="hidden lg:flex 2xl:hidden space-x-6 xl:space-x-8 text-[0.92rem] font-medium items-center flex-nowrap min-w-0">
       <a href="index.html" class="hover:text-blue-800 whitespace-nowrap">Home</a>
       <a href="about.html" class="hover:text-blue-800 whitespace-nowrap">About Us</a>
       <a href="product.html" class="hover:text-blue-800 whitespace-nowrap">Products</a>
@@ -35,7 +35,7 @@
     </nav>
 
     <!-- Full Nav (2xl and up) -->
-    <nav class="hidden 2xl:flex space-x-6 xl:space-x-12 text-[1rem] font-medium items-center flex-nowrap min-w-0">
+    <nav class="hidden 2xl:flex space-x-8 text-[1rem] font-medium items-center flex-nowrap min-w-0">
       <a href="index.html" class="hover:text-blue-800 whitespace-nowrap">Home</a>
       <a href="about.html" class="hover:text-blue-800 whitespace-nowrap">About Us</a>
       <a href="product.html" class="hover:text-blue-800 whitespace-nowrap">Products</a>
@@ -45,7 +45,7 @@
       <a href="customer.html" class="hover:text-blue-800 whitespace-nowrap">Customer Service</a>
       <a
         href="contact.html"
-        class="text-white px-5 py-2 rounded-md bg-gradient-to-r from-blue-700 to-indigo-900 hover:brightness-90 whitespace-nowrap"
+        class="text-white px-3 py-2 rounded-md bg-gradient-to-r from-blue-700 to-indigo-900 hover:brightness-90 whitespace-nowrap"
       >
         Contact Us
       </a>
