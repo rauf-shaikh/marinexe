@@ -17,9 +17,13 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
       rel="stylesheet"
-    /><link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&display=swap"
+      rel="stylesheet"
+    />
 
-<script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js"></script>
 
     <style>
       body {
@@ -28,13 +32,13 @@
       [x-cloak] {
         display: none !important;
       }
-            /* Hide horizontal scrollbar but allow scroll */
+      /* Hide horizontal scrollbar but allow scroll */
       .no-scrollbar::-webkit-scrollbar {
         display: none;
       }
       .no-scrollbar {
-        -ms-overflow-style: none;  /* IE and Edge */
-        scrollbar-width: none;     /* Firefox */
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
       }
     </style>
   </head>
@@ -47,7 +51,8 @@
     <div x-ref="header"></div>
     <!-- Main content starts here -->
     <main class="flex-grow">
-      <div class="relative min-h-screen w-full overflow-hidden bg-black pt-24 sm:pt-28"
+      <div
+        class="relative min-h-screen w-full overflow-hidden bg-black pt-24 sm:pt-28"
         x-data="{
     videos: [
       '../assets/home-page/video1.mp4',
@@ -91,22 +96,9 @@
 
         <div class="absolute inset-0 bg-black bg-opacity-20"></div>
 
-<div
-  class="max-w-7xl mx-auto absolute bottom-0
-    left-4 right-4
-    sm:left-6 sm:right-6
-    md:left-8 md:right-8
-    lg:left-16 lg:right-16
-    xl:left-24 xl:right-24
-    2xl:left-[100px] 2xl:right-[100px]
-    flex flex-col
-    items-center sm:items-start
-    justify-end
-    text-center sm:text-left
-    z-10
-    pb-8 md:pb-12 lg:pb-8"
->
-
+        <div
+          class="max-w-7xl mx-auto absolute bottom-0 left-4 right-4 sm:left-6 sm:right-6 md:left-8 md:right-8 lg:left-16 lg:right-16 xl:left-24 xl:right-24 2xl:left-[100px] 2xl:right-[100px] flex flex-col items-center sm:items-start justify-end text-center sm:text-left z-10 pb-8 md:pb-12 lg:pb-8"
+        >
           <div class="max-w-full md:max-w-2xl space-y-6 md:space-y-5">
             <div
               class="text-white font-medium text-sm md:text-base bg-white bg-opacity-30 rounded-full px-3 md:px-6 py-1 md:py-2 max-w-max mx-auto sm:mx-0 mb-0 drop-shadow-md tracking-widest"
@@ -120,7 +112,6 @@
             >
               <span class="block sm:inline">Harvested With Care</span>
               <span class="block sm:inline">Delivered With Trust</span>
-
             </h1>
 
             <p
@@ -140,9 +131,9 @@
         </div>
       </div>
 
-<section 
-  class="px-6 py-20 md:px-6"
-  x-data="{
+      <section
+        class="px-6 py-20 md:px-6"
+        x-data="{
     categories: {
       'Scampi': 'our-product-img1.png',
       'Black Tiger Shrimp': 'our-product-img2.jpeg',
@@ -173,694 +164,791 @@
       this.selected = keys[(index - 1 + keys.length) % keys.length];
     }
   }"
->
+      >
+        <!-- Title now appears above everything and is aligned left -->
+        <div class="mb-8 max-w-7xl mx-auto text-center md:text-left">
+          <div
+            class="inline-flex items-center justify-center md:justify-start space-x-2 text-sm font-semibold text-blue-900 bg-gray-200 bg-opacity-30 uppercase tracking-wide rounded-full px-3 border border-gray-300 py-1"
+          >
+            <span class="text-xl">𓆫</span>
+            <span>Explore</span>
+          </div>
+          <h2
+            class="mt-5 text-[2.5rem] text-blue-900 uppercase leading-none"
+            style="font-family: 'Anton', sans-serif; letter-spacing: 0.7px"
+          >
+            OUR PRODUCTS CATEGORIES
+          </h2>
+        </div>
 
-
-  <!-- Title now appears above everything and is aligned left -->
-<div class="mb-8 max-w-7xl mx-auto text-center md:text-left">
-  <div class="inline-flex items-center justify-center md:justify-start space-x-2 text-sm font-semibold text-blue-900 bg-gray-200 bg-opacity-30 uppercase tracking-wide rounded-full px-3 border border-gray-300 py-1">
-    <span class="text-xl">𓆫</span>
-    <span>Explore</span>
-  </div>
-<h2 
-  class="mt-5 text-[2.5rem] text-blue-900 uppercase leading-none"
-  style="font-family: 'Anton', sans-serif; letter-spacing: 0.7px;"
->
-  OUR PRODUCTS CATEGORIES
-</h2>
-
-</div>
-
-<!-- Two Column Layout -->
-<div class="max-w-7xl mx-auto flex flex-col md:flex-row items-start gap-12">
-
-  <!-- Sidebar: Categories (desktop) -->
-  <aside class="w-full md:w-1/3 flex flex-col space-y-4 border-r border-gray-300 text-lg pr-6 hidden md:flex bg-blue-100 rounded-xl pl-4 shadow-md">
-    <template x-for="(img, name) in categories" :key="name">
-      <button
-        @click="selectCategory(name)"
-        :class="selected === name 
+        <!-- Two Column Layout -->
+        <div
+          class="max-w-7xl mx-auto flex flex-col md:flex-row items-start gap-12"
+        >
+          <!-- Sidebar: Categories (desktop) -->
+          <aside
+            class="w-full md:w-1/3 flex flex-col space-y-4 border-r border-gray-300 text-lg pr-6 hidden md:flex bg-blue-100 rounded-xl pl-4 shadow-md"
+          >
+            <template x-for="(img, name) in categories" :key="name">
+              <button
+                @click="selectCategory(name)"
+                :class="selected === name 
           ? 'relative text-blue-900 font-semibold text-xl pl-6 before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-1.5 before:h-8 before:rounded-full before:bg-blue-900' 
           : 'text-gray-700 hover:text-blue-900'"
-        class="text-left py-3 transition-colors duration-300 ease-in-out whitespace-nowrap"
-      >
-        <span x-text="name"></span>
-      </button>
-    </template>
-  </aside>
+                class="text-left py-3 transition-colors duration-300 ease-in-out whitespace-nowrap"
+              >
+                <span x-text="name"></span>
+              </button>
+            </template>
+          </aside>
 
-  <!-- Main Image Container -->
-  <div class="w-full md:w-2/3 flex flex-col items-center relative">
-    <div
-      class="w-full flex items-center justify-center relative bg-gray-100 rounded-xl overflow-hidden shadow-xl
-             h-[400px] md:h-[677px] lg:h-[678px]"
-      :key="selected"
-    >
-    <!-- Fishes Category (stacked images) -->
-    <template x-if="selected === 'Fishes'">
-      <div class="w-full h-full flex flex-col">
-        <!-- Freshwater Fish -->
-        <div class="relative w-full flex-1 min-h-0">
-          <img 
-            src="../assets/home-page/fish-category1.jpg" 
-            alt="Freshwater Fish"
-            class="w-full h-full object-cover"
-          />
-          <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white text-lg font-semibold py-2 px-4 text-center">
-            Freshwater Fish
+          <!-- Main Image Container -->
+          <div class="w-full md:w-2/3 flex flex-col items-center relative">
+            <div
+              class="w-full flex items-center justify-center relative bg-gray-100 rounded-xl overflow-hidden shadow-xl h-[400px] md:h-[677px] lg:h-[678px]"
+              :key="selected"
+            >
+              <!-- Fishes Category (stacked images) -->
+              <template x-if="selected === 'Fishes'">
+                <div class="w-full h-full flex flex-col">
+                  <!-- Freshwater Fish -->
+                  <div class="relative w-full flex-1 min-h-0">
+                    <img
+                      src="../assets/home-page/fish-category1.jpg"
+                      alt="Freshwater Fish"
+                      class="w-full h-full object-cover"
+                    />
+                    <div
+                      class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white text-lg font-semibold py-2 px-4 text-center"
+                    >
+                      Freshwater Fish
+                    </div>
+                  </div>
+
+                  <!-- Seawater Fish -->
+                  <div class="relative w-full flex-1 min-h-0">
+                    <img
+                      src="../assets/home-page/fish-category2.jpg"
+                      alt="Seawater Fish"
+                      class="w-full h-full object-cover"
+                    />
+                    <div
+                      class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white text-lg font-semibold py-2 px-4 text-center"
+                    >
+                      Seawater Fish
+                    </div>
+                  </div>
+                </div>
+              </template>
+
+              <!-- All other categories -->
+              <template x-if="selected !== 'Fishes'">
+                <img
+                  :src="'../assets/home-page/' + categories[selected]"
+                  alt=""
+                  class="w-full h-full object-cover"
+                />
+              </template>
+
+              <!-- Category Label -->
+
+              <template x-if="selected !== 'Fishes'">
+                <div
+                  class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white text-lg font-semibold py-2 px-4 text-center"
+                  x-text="selected"
+                ></div>
+              </template>
+            </div>
+
+            <!-- Carousel Navigation (moved below image container on mobile only) -->
+            <div
+              class="w-full flex justify-end items-center gap-4 mt-4 md:hidden opacity-0 transition-opacity duration-300"
+              x-init="$nextTick(() => $el.classList.remove('opacity-0'))"
+            >
+              <button
+                @click="prevCategory"
+                class="w-12 h-12 flex items-center justify-center bg-blue-900 text-white rounded-full backdrop-blur-md shadow"
+                aria-label="Previous Category"
+              >
+                <iconify-icon icon="mdi:chevron-left" width="24"></iconify-icon>
+              </button>
+
+              <button
+                @click="nextCategory"
+                class="w-12 h-12 flex items-center justify-center bg-blue-900 text-white rounded-full backdrop-blur-md shadow"
+                aria-label="Next Category"
+              >
+                <iconify-icon
+                  icon="mdi:chevron-right"
+                  width="24"
+                ></iconify-icon>
+              </button>
+            </div>
           </div>
         </div>
-
-        <!-- Seawater Fish -->
-        <div class="relative w-full flex-1 min-h-0">
-          <img 
-            src="../assets/home-page/fish-category2.jpg" 
-            alt="Seawater Fish"
-            class="w-full h-full object-cover"
-          />
-          <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white text-lg font-semibold py-2 px-4 text-center">
-            Seawater Fish
+        <div class="max-w-7xl mx-auto py-20 pt-20 pb-0">
+          <div class="flex flex-col md:flex-row md:items-center md:gap-16">
+            <!-- Left: Heading -->
+            <div class="md:w-1/3 w-full flex items-start md:items-center">
+              <h2
+                class="text-[2.5rem] text-blue-900 uppercase leading-none"
+                style="font-family: 'Anton', sans-serif; letter-spacing: 0.7px"
+              >
+                OUR BUSINESSES
+              </h2>
+            </div>
+            <!-- Right: Paragraph container, right-aligned on desktop, stacked below on mobile -->
+            <div
+              class="md:w-2/3 w-full flex items-start md:justify-end mt-6 md:mt-0"
+            >
+              <p
+                class="text-base md:text-lg text-gray-600 text-left max-w-2xl leading-relaxed font-medium"
+              >
+                From coastlines to global kitchens, our seamless export
+                logistics, cold chain integrity, and packaging excellence ensure
+                your seafood arrives fresh, safe, and on time.
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-    </template>
-
-      <!-- All other categories -->
-      <template x-if="selected !== 'Fishes'">
-        <img 
-          :src="'../assets/home-page/' + categories[selected]" 
-          alt=""
-          class="w-full h-full object-cover"
-        />
-      </template>
-
-      <!-- Category Label -->
-
-        <template x-if="selected !== 'Fishes'">
-          <div 
-            class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white text-lg font-semibold py-2 px-4 text-center"
-            x-text="selected"
-          ></div>
-        </template>
-    </div>
-    
-    <!-- Carousel Navigation (moved below image container on mobile only) -->
-    <div 
-  class="w-full flex justify-end items-center gap-4 mt-4 md:hidden opacity-0 transition-opacity duration-300"
-  x-init="$nextTick(() => $el.classList.remove('opacity-0'))"
->
-<button 
-  @click="prevCategory"
-  class="w-12 h-12 flex items-center justify-center bg-blue-900 text-white rounded-full backdrop-blur-md shadow"
-  aria-label="Previous Category"
->
-  <iconify-icon icon="mdi:chevron-left" width="24"></iconify-icon>
-</button>
-
-<button 
-  @click="nextCategory"
-  class="w-12 h-12 flex items-center justify-center bg-blue-900 text-white rounded-full backdrop-blur-md shadow"
-  aria-label="Next Category"
->
-  <iconify-icon icon="mdi:chevron-right" width="24"></iconify-icon>
-</button>
-
-    </div>
-  </div>
-</div>
-<div class="max-w-7xl mx-auto py-20 pt-20 pb-0">
-  <div class="flex flex-col md:flex-row md:items-center md:gap-16">
-    <!-- Left: Heading -->
-    <div class="md:w-1/3 w-full flex items-start md:items-center">
-      <h2
-        class="text-[2.5rem] text-blue-900 uppercase leading-none"
-        style="font-family: 'Anton', sans-serif; letter-spacing: 0.7px;"
-      >
-        OUR BUSINESSES
-      </h2>
-    </div>
-    <!-- Right: Paragraph container, right-aligned on desktop, stacked below on mobile -->
-    <div class="md:w-2/3 w-full flex items-start md:justify-end mt-6 md:mt-0">
-      <p class="text-base md:text-lg text-gray-600 text-left max-w-2xl leading-relaxed font-medium">
-        From coastlines to global kitchens, our seamless export logistics, cold chain integrity, and packaging excellence ensure your seafood arrives fresh, safe, and on time.
-      </p>
-    </div>
-  </div>
-</div>
-
-</section>
-<!-- Horizontal Image Row -->
-<div class="hidden md:block w-full">
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-[10px] w-full bg-blue-100 rounded-t-xl">
-    <!-- Image 1 -->
-    <div class="overflow-hidden rounded-bl-xl shadow-lg flex items-center justify-center w-full">
-      <img src="../assets/home-page/our-business-1.png" alt="Image 1" class="w-full h-80 md:h-[400px] lg:h-[500px] object-cover" />
-    </div>
-    <!-- Image 2 -->
-    <div class="overflow-hidden shadow-lg flex items-center justify-center w-full">
-      <img src="../assets/home-page/our-business-2.png" alt="Image 2" class="w-full h-80 md:h-[400px] lg:h-[500px] object-cover" />
-    </div>
-    <!-- Image 3 -->
-    <div class="overflow-hidden rounded-br-xl shadow-lg flex items-center justify-center w-full">
-      <img src="../assets/home-page/our-business-3.png" alt="Image 3" class="w-full h-80 md:h-[400px] lg:h-[500px] object-cover" />
-    </div>
-  </div>
-</div>
-
-<!-- Wrapper with Alpine.js component -->
-<div 
-  x-data="slider()" 
-  x-init="startRotation()" 
-  class="w-full bg-white"
->
-
-<!-- Mobile Slider: Only visible on small screens -->
-<div class="block md:hidden px-[20px] pt-10 pb-10 text-center relative overflow-hidden h-[500px] bg-white">
-  <template x-for="(item, index) in items" :key="index">
-    <div
-      x-show="current === index"
-      x-transition:enter="transform transition ease-in-out duration-500"
-      x-transition:enter-start="translate-x-full opacity-0"
-      x-transition:enter-end="translate-x-0 opacity-100"
-      x-transition:leave="transform transition ease-in-out duration-500 absolute inset-0"
-      x-transition:leave-start="translate-x-0 opacity-100"
-      x-transition:leave-end="-translate-x-full opacity-0"
-      class="absolute inset-0 flex flex-col items-center text-center px-6"
-    >
-<div class="relative w-full aspect-[9/16] mb-6 rounded-xl overflow-hidden shadow-lg">
-
-  <img
-    :src="item.img"
-    class="w-full h-full object-cover"
-    :alt="item.title"
-  />
-
-  <!-- Black overlay with some transparency -->
-  <div class="absolute inset-0 bg-black bg-opacity-40"></div>
-
-  <!-- Description block on top of image -->
-  <div class="absolute bottom-0 left-0 right-0 p-4 text-white text-center">
-    <span class="inline-block mb-2">
-<iconify-icon
-  :icon="item.icon"
-  width="48"
-  style="color:#00bfae;"
-></iconify-icon>
-    </span>
-    <h3 class="text-xl font-bold mb-1" x-text="item.title"></h3>
-    <p class="text-sm font-medium leading-relaxed" x-text="item.desc"></p>
-  </div>
-  
-</div>
-
-    </div>
-  </template>
-</div>
-
-
-  <!-- Desktop Grid: Visible on md+ -->
-  <div class="hidden md:grid grid-cols-3 gap-8 px-[20px] pt-10 pb-20 bg-blue-100 rounded-b-xl">
-    <!-- Description 1 -->
-    <div class="flex flex-col items-center text-center">
-      <span class="inline-block mb-4">
-        <iconify-icon icon="mdi:ferry" style="color:#00bfae;" width="48"></iconify-icon>
-      </span>
-      <h3 class="text-xl md:text-xl font-bold text-blue-900 mb-2">
-        Seafood Express Exporters
-      </h3>
-      <p class="text-gray-600 text-base md:text-base font-medium">
-        We export high-quality Pane-Shrimp. Prawns, Scampi, Squeal, Cuttlefish and variety of frozen fish.
-      </p>
-    </div>
-
-    <!-- Description 2 -->
-    <div class="flex flex-col items-center text-center">
-      <span class="inline-block mb-4">
-                <iconify-icon icon="mdi:lifebuoy" style="color:#00bfae;" width="48"></iconify-icon>
-      </span>
-      <h3 class="text-xl md:text-xl font-bold text-blue-900 mb-2">
-        Seafood Express (Marketing Seafood)
-      </h3>
-      <p class="text-gray-600 text-base md:text-base font-medium">
-        We specialise in promoting sustainable farming of vannamei shrimp and Giant Freshwater Scampi.
-      </p>
-    </div>
-
-    <!-- Description 3 -->
-    <div class="flex flex-col items-center text-center">
-      <span class="inline-block mb-4">
-                <iconify-icon icon="mdi:fish" style="color:#00bfae;" width="48"></iconify-icon>
-      </span>
-      <h3 class="text-xl md:text-xl font-bold text-blue-900 mb-2">
-        Seafood Express Consultants
-      </h3>
-      <p class="text-gray-600 text-base md:text-base font-medium">
-        We offer consulting services for shrimp farm infrastructure and aquaculture operations.
-      </p>
-    </div>
-  </div>
-
-</div>
-<hr class="border-t border-gray-300 mt-20 mx-auto w-[90%] max-w-7xl" />
-
-<section class="px-6 py-20 md:px-6">
-  <div class="max-w-7xl mx-auto space-y-6">
-
-    <!-- Row 1: Title and Badge -->
-    <div class="text-center md:text-left lg:flex lg:items-end lg:justify-between">
-      <div>
-        <div class="inline-flex items-center justify-center md:justify-start space-x-2 text-sm font-semibold text-blue-900 bg-gray-200 bg-opacity-30 uppercase tracking-wide rounded-full px-3 border border-gray-300 py-1">
-          <span class="text-xl">𓆫</span>
-          <span>Premium Selection</span>
-        </div>
-
-        <h2
-          class="mt-5 text-[2.5rem] text-blue-900 uppercase leading-none"
-          style="font-family: 'Anton', sans-serif; letter-spacing: 0.7px;"
+      </section>
+      <!-- Horizontal Image Row -->
+      <div class="hidden md:block w-full">
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-[10px] w-full bg-blue-100 rounded-t-xl"
         >
-          Explore Our Premium Seafood Range
-        </h2>
+          <!-- Image 1 -->
+          <div
+            class="overflow-hidden rounded-bl-xl shadow-lg flex items-center justify-center w-full"
+          >
+            <img
+              src="../assets/home-page/our-business-1.png"
+              alt="Image 1"
+              class="w-full h-80 md:h-[400px] lg:h-[500px] object-cover"
+            />
+          </div>
+          <!-- Image 2 -->
+          <div
+            class="overflow-hidden shadow-lg flex items-center justify-center w-full"
+          >
+            <img
+              src="../assets/home-page/our-business-2.png"
+              alt="Image 2"
+              class="w-full h-80 md:h-[400px] lg:h-[500px] object-cover"
+            />
+          </div>
+          <!-- Image 3 -->
+          <div
+            class="overflow-hidden rounded-br-xl shadow-lg flex items-center justify-center w-full"
+          >
+            <img
+              src="../assets/home-page/our-business-3.png"
+              alt="Image 3"
+              class="w-full h-80 md:h-[400px] lg:h-[500px] object-cover"
+            />
+          </div>
+        </div>
       </div>
 
-      <!-- CTA Button - only shows on lg+ inline here -->
-      <div class="hidden lg:block">
-        <a
-          href="#"
-          class="inline-block px-6 py-3 text-white uppercase font-semibold shadow-md bg-gradient-to-r from-blue-700 to-indigo-900 hover:brightness-90 rounded-md"
+      <!-- Wrapper with Alpine.js component -->
+      <div x-data="slider()" x-init="startRotation()" class="w-full bg-white">
+        <!-- Mobile Slider: Only visible on small screens -->
+        <div
+          class="block md:hidden px-[20px] pt-10 pb-10 text-center relative overflow-hidden h-[500px] bg-white"
         >
-          Explore More
-        </a>
-      </div>
-    </div>
+          <template x-for="(item, index) in items" :key="index">
+            <div
+              x-show="current === index"
+              x-transition:enter="transform transition ease-in-out duration-500"
+              x-transition:enter-start="translate-x-full opacity-0"
+              x-transition:enter-end="translate-x-0 opacity-100"
+              x-transition:leave="transform transition ease-in-out duration-500 absolute inset-0"
+              x-transition:leave-start="translate-x-0 opacity-100"
+              x-transition:leave-end="-translate-x-full opacity-0"
+              class="absolute inset-0 flex flex-col items-center text-center px-6"
+            >
+              <div
+                class="relative w-full aspect-[9/16] mb-6 rounded-xl overflow-hidden shadow-lg"
+              >
+                <img
+                  :src="item.img"
+                  class="w-full h-full object-cover"
+                  :alt="item.title"
+                />
 
-    <!-- Row 2: Paragraph Description -->
-    <p class="text-gray-600 text-base md:text-lg font-medium max-w-xl mx-auto md:mx-0 text-center md:text-left">
-      From Scampi, Black Tiger shrimp to Surimi, each product is handpicked, hygienically packed, and globally trusted.
-    </p>
+                <!-- Black overlay with some transparency -->
+                <div class="absolute inset-0 bg-black bg-opacity-40"></div>
 
-    <!-- CTA Button - shows only on sm & md below paragraph -->
-    <div class="block lg:hidden text-center md:text-left">
-
-      <a
-        href="#"
-        class="inline-block px-6 py-3 text-white uppercase font-semibold shadow-md bg-gradient-to-r from-blue-700 to-indigo-900 hover:brightness-90 rounded-md"
-      >
-        Explore More
-      </a>
-    </div>
-
-  </div>
-</section>
-
-<section class="max-w-7xl mx-auto overflow-x-hidden">
-  <!-- Mobile/Tablet: Horizontal scroll -->
-  <div class="overflow-x-auto no-scrollbar lg:hidden px-4">
-    <div class="flex gap-4 snap-x snap-mandatory">
-      <!-- Card 1 -->
-      <div class="relative flex-shrink-0 w-48 sm:w-52 md:w-64 h-80 rounded-md overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 snap-start">
-        <img src="../assets/home-page/premium-img1.jpeg" alt="Scampi" class="w-full h-full object-cover" />
-        <div class="absolute inset-0 bg-black bg-opacity-30 flex items-end">
-          <div class="w-full p-4">
-            <h3 class="text-white text-xl font-semibold text-center">Scampi</h3>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 2 -->
-      <div class="relative flex-shrink-0 w-48 sm:w-52 md:w-64 h-80 rounded-md overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 snap-start">
-        <img src="../assets/home-page/our-product-img2.jpeg" alt="Black Tiger Shrimp" class="w-full h-full object-cover" />
-        <div class="absolute inset-0 bg-black bg-opacity-30 flex items-end">
-          <div class="w-full p-4">
-            <h3 class="text-white text-xl font-semibold text-center">Black tiger shrimp</h3>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 3 -->
-      <div class="relative flex-shrink-0 w-48 sm:w-52 md:w-64 h-80 rounded-md overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 snap-start">
-        <img src="../assets/home-page/our-product-img3.png" alt="Vannamei Shrimp" class="w-full h-full object-cover" />
-        <div class="absolute inset-0 bg-black bg-opacity-30 flex items-end">
-          <div class="w-full p-4">
-            <h3 class="text-white text-xl font-semibold text-center">Vannamei shrimp</h3>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 4 -->
-      <div class="relative flex-shrink-0 w-48 sm:w-52 md:w-64 h-80 rounded-md overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 snap-start">
-        <img src="../assets/home-page/our-product-img5.jpg" alt="Tuna" class="w-full h-full object-cover" />
-        <div class="absolute inset-0 bg-black bg-opacity-30 flex items-end">
-          <div class="w-full p-4">
-            <h3 class="text-white text-xl font-semibold text-center">Tuna</h3>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div><div class="lg:hidden flex justify-center mt-6">
-  <svg width="60" height="20" viewBox="0 0 60 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M5 10 Q25 0 45 10" stroke="#999" stroke-width="2" fill="none" />
-    <path d="M45 10 L43 5 M45 10 L40 15" stroke="#999" stroke-width="2" />
-  </svg>
-</div>
-
-
-  <!-- Desktop: Grid 4-column layout -->
-  <div class="hidden lg:grid grid-cols-4 gap-6">
-    <!-- Card 1 -->
-    <div class="relative h-80 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
-      <img src="../assets/home-page/premium-img1.jpeg" alt="Scampi"
-           class="w-full h-full object-cover" />
-        <div class="absolute inset-0 bg-black bg-opacity-30 flex items-end">
-          <div class="w-full p-4">
-            <h3 class="text-white text-lg font-semibold text-center">Scampi</h3>
-          </div>
-        </div>
-    </div>
-
-    <!-- Card 2 -->
-    <div class="relative h-80 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
-      <img src="../assets/home-page/our-product-img2.jpeg" alt="Black Tiger Shrimp"
-           class="w-full h-full object-cover" />
-        <div class="absolute inset-0 bg-black bg-opacity-30 flex items-end">
-          <div class="w-full p-4">
-            <h3 class="text-white text-lg font-semibold text-center">Black tiger shrimp</h3>
-          </div>
-        </div>
-    </div>
-
-    <!-- Card 3 -->
-    <div class="relative h-80 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
-      <img src="../assets/home-page/our-product-img3.png" alt="Vannamei Shrimp"
-           class="w-full h-full object-cover" />
-        <div class="absolute inset-0 bg-black bg-opacity-30 flex items-end">
-          <div class="w-full p-4">
-            <h3 class="text-white text-lg font-semibold text-center">Vannamei shrimp</h3>
-          </div>
-        </div>
-    </div>
-
-    <!-- Card 4 -->
-    <div class="relative h-80 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
-      <img src="../assets/home-page/our-product-img5.jpg" alt="Tuna"
-           class="w-full h-full object-cover" />
-        <div class="absolute inset-0 bg-black bg-opacity-30 flex items-end">
-          <div class="w-full p-4">
-            <h3 class="text-white text-lg font-semibold text-center">Tuna</h3>
-          </div>
-        </div>
-    </div>
-  </div>
-</section>
-<section class="px-6 py-20 md:px-6">
-  <div class="max-w-7xl mx-auto space-y-6">
-
-    <!-- Row 1: Title and Badge -->
-    <div class="text-center md:text-left lg:flex lg:items-end lg:justify-between">
-      <div>
-        <div class="inline-flex items-center justify-center md:justify-start space-x-2 text-sm font-semibold text-blue-900 bg-gray-200 bg-opacity-30 uppercase tracking-wide rounded-full px-3 border border-gray-300 py-1">
-          <span class="text-xl">𓆫</span>
-          <span>Passion. Purpose. Progress.</span>
+                <!-- Description block on top of image -->
+                <div
+                  class="absolute bottom-0 left-0 right-0 p-4 text-white text-center"
+                >
+                  <span class="inline-block mb-2">
+                    <iconify-icon
+                      :icon="item.icon"
+                      width="48"
+                      style="color: #00bfae"
+                    ></iconify-icon>
+                  </span>
+                  <h3 class="text-xl font-bold mb-1" x-text="item.title"></h3>
+                  <p
+                    class="text-sm font-medium leading-relaxed"
+                    x-text="item.desc"
+                  ></p>
+                </div>
+              </div>
+            </div>
+          </template>
         </div>
 
-        <h2
-          class="mt-5 text-[2.5rem] text-blue-900 uppercase leading-none"
-          style="font-family: 'Anton', sans-serif; letter-spacing: 0.7px;"
+        <!-- Desktop Grid: Visible on md+ -->
+        <div
+          class="hidden md:grid grid-cols-3 gap-8 px-[20px] pt-10 pb-20 bg-blue-100 rounded-b-xl"
         >
-          Our Story, Your Seafood
-        </h2>
-      </div>
+          <!-- Description 1 -->
+          <div class="flex flex-col items-center text-center">
+            <span class="inline-block mb-4">
+              <iconify-icon
+                icon="mdi:ferry"
+                style="color: #00bfae"
+                width="48"
+              ></iconify-icon>
+            </span>
+            <h3 class="text-xl md:text-xl font-bold text-blue-900 mb-2">
+              Seafood Express Exporters
+            </h3>
+            <p class="text-gray-600 text-base md:text-base font-medium">
+              We export high-quality Pane-Shrimp. Prawns, Scampi, Squeal,
+              Cuttlefish and variety of frozen fish.
+            </p>
+          </div>
 
-      <!-- CTA Button - only shows on lg+ inline here -->
-      <div class="hidden lg:block">
-        <a
-          href="#"
-          class="inline-block px-6 py-3 text-white uppercase font-semibold shadow-md bg-gradient-to-r from-blue-700 to-indigo-900 hover:brightness-90 rounded-md"
+          <!-- Description 2 -->
+          <div class="flex flex-col items-center text-center">
+            <span class="inline-block mb-4">
+              <iconify-icon
+                icon="mdi:lifebuoy"
+                style="color: #00bfae"
+                width="48"
+              ></iconify-icon>
+            </span>
+            <h3 class="text-xl md:text-xl font-bold text-blue-900 mb-2">
+              Seafood Express (Marketing Seafood)
+            </h3>
+            <p class="text-gray-600 text-base md:text-base font-medium">
+              We specialise in promoting sustainable farming of vannamei shrimp
+              and Giant Freshwater Scampi.
+            </p>
+          </div>
+
+          <!-- Description 3 -->
+          <div class="flex flex-col items-center text-center">
+            <span class="inline-block mb-4">
+              <iconify-icon
+                icon="mdi:fish"
+                style="color: #00bfae"
+                width="48"
+              ></iconify-icon>
+            </span>
+            <h3 class="text-xl md:text-xl font-bold text-blue-900 mb-2">
+              Seafood Express Consultants
+            </h3>
+            <p class="text-gray-600 text-base md:text-base font-medium">
+              We offer consulting services for shrimp farm infrastructure and
+              aquaculture operations.
+            </p>
+          </div>
+        </div>
+      </div>
+      <hr class="border-t border-gray-300 mt-20 mx-auto w-[90%] max-w-7xl" />
+
+      <section class="px-6 py-20 md:px-6">
+        <div class="max-w-7xl mx-auto space-y-6">
+          <!-- Row 1: Title and Badge -->
+          <div
+            class="text-center md:text-left lg:flex lg:items-end lg:justify-between"
+          >
+            <div>
+              <div
+                class="inline-flex items-center justify-center md:justify-start space-x-2 text-sm font-semibold text-blue-900 bg-gray-200 bg-opacity-30 uppercase tracking-wide rounded-full px-3 border border-gray-300 py-1"
+              >
+                <span class="text-xl">𓆫</span>
+                <span>Premium Selection</span>
+              </div>
+
+              <h2
+                class="mt-5 text-[2.5rem] text-blue-900 uppercase leading-none"
+                style="font-family: 'Anton', sans-serif; letter-spacing: 0.7px"
+              >
+                Explore Our Premium Seafood Range
+              </h2>
+            </div>
+
+            <!-- CTA Button - only shows on lg+ inline here -->
+            <div class="hidden lg:block">
+              <a
+                href="#"
+                class="inline-block px-6 py-3 text-white uppercase font-semibold shadow-md bg-gradient-to-r from-blue-700 to-indigo-900 hover:brightness-90 rounded-md"
+              >
+                Explore More
+              </a>
+            </div>
+          </div>
+
+          <!-- Row 2: Paragraph Description -->
+          <p
+            class="text-gray-600 text-base md:text-lg font-medium max-w-xl mx-auto md:mx-0 text-center md:text-left"
+          >
+            From Scampi, Black Tiger shrimp to Surimi, each product is
+            handpicked, hygienically packed, and globally trusted.
+          </p>
+
+          <!-- CTA Button - shows only on sm & md below paragraph -->
+          <div class="block lg:hidden text-center md:text-left">
+            <a
+              href="#"
+              class="inline-block px-6 py-3 text-white uppercase font-semibold shadow-md bg-gradient-to-r from-blue-700 to-indigo-900 hover:brightness-90 rounded-md"
+            >
+              Explore More
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="max-w-7xl mx-auto overflow-x-hidden">
+        <!-- Mobile/Tablet: Horizontal scroll -->
+        <div class="overflow-x-auto no-scrollbar lg:hidden px-4">
+          <div class="flex gap-4 snap-x snap-mandatory">
+            <!-- Card 1 -->
+            <div
+              class="relative flex-shrink-0 w-48 sm:w-52 md:w-64 h-80 rounded-md overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 snap-start"
+            >
+              <img
+                src="../assets/home-page/premium-img1.jpeg"
+                alt="Scampi"
+                class="w-full h-full object-cover"
+              />
+              <div
+                class="absolute inset-0 bg-black bg-opacity-30 flex items-end"
+              >
+                <div class="w-full p-4">
+                  <h3 class="text-white text-xl font-semibold text-center">
+                    Scampi
+                  </h3>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div
+              class="relative flex-shrink-0 w-48 sm:w-52 md:w-64 h-80 rounded-md overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 snap-start"
+            >
+              <img
+                src="../assets/home-page/our-product-img2.jpeg"
+                alt="Black Tiger Shrimp"
+                class="w-full h-full object-cover"
+              />
+              <div
+                class="absolute inset-0 bg-black bg-opacity-30 flex items-end"
+              >
+                <div class="w-full p-4">
+                  <h3 class="text-white text-xl font-semibold text-center">
+                    Black tiger shrimp
+                  </h3>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div
+              class="relative flex-shrink-0 w-48 sm:w-52 md:w-64 h-80 rounded-md overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 snap-start"
+            >
+              <img
+                src="../assets/home-page/our-product-img3.png"
+                alt="Vannamei Shrimp"
+                class="w-full h-full object-cover"
+              />
+              <div
+                class="absolute inset-0 bg-black bg-opacity-30 flex items-end"
+              >
+                <div class="w-full p-4">
+                  <h3 class="text-white text-xl font-semibold text-center">
+                    Vannamei shrimp
+                  </h3>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div
+              class="relative flex-shrink-0 w-48 sm:w-52 md:w-64 h-80 rounded-md overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 snap-start"
+            >
+              <img
+                src="../assets/home-page/our-product-img5.jpg"
+                alt="Tuna"
+                class="w-full h-full object-cover"
+              />
+              <div
+                class="absolute inset-0 bg-black bg-opacity-30 flex items-end"
+              >
+                <div class="w-full p-4">
+                  <h3 class="text-white text-xl font-semibold text-center">
+                    Tuna
+                  </h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="lg:hidden flex justify-center mt-6">
+          <svg
+            width="60"
+            height="20"
+            viewBox="0 0 60 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M5 10 Q25 0 45 10"
+              stroke="#999"
+              stroke-width="2"
+              fill="none"
+            />
+            <path
+              d="M45 10 L43 5 M45 10 L40 15"
+              stroke="#999"
+              stroke-width="2"
+            />
+          </svg>
+        </div>
+
+        <!-- Desktop: Grid 4-column layout -->
+        <div class="hidden lg:grid grid-cols-4 gap-6">
+          <!-- Card 1 -->
+          <div
+            class="relative h-80 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300"
+          >
+            <img
+              src="../assets/home-page/premium-img1.jpeg"
+              alt="Scampi"
+              class="w-full h-full object-cover"
+            />
+            <div class="absolute inset-0 bg-black bg-opacity-30 flex items-end">
+              <div class="w-full p-4">
+                <h3 class="text-white text-lg font-semibold text-center">
+                  Scampi
+                </h3>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div
+            class="relative h-80 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300"
+          >
+            <img
+              src="../assets/home-page/our-product-img2.jpeg"
+              alt="Black Tiger Shrimp"
+              class="w-full h-full object-cover"
+            />
+            <div class="absolute inset-0 bg-black bg-opacity-30 flex items-end">
+              <div class="w-full p-4">
+                <h3 class="text-white text-lg font-semibold text-center">
+                  Black tiger shrimp
+                </h3>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div
+            class="relative h-80 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300"
+          >
+            <img
+              src="../assets/home-page/our-product-img3.png"
+              alt="Vannamei Shrimp"
+              class="w-full h-full object-cover"
+            />
+            <div class="absolute inset-0 bg-black bg-opacity-30 flex items-end">
+              <div class="w-full p-4">
+                <h3 class="text-white text-lg font-semibold text-center">
+                  Vannamei shrimp
+                </h3>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div
+            class="relative h-80 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300"
+          >
+            <img
+              src="../assets/home-page/our-product-img5.jpg"
+              alt="Tuna"
+              class="w-full h-full object-cover"
+            />
+            <div class="absolute inset-0 bg-black bg-opacity-30 flex items-end">
+              <div class="w-full p-4">
+                <h3 class="text-white text-lg font-semibold text-center">
+                  Tuna
+                </h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="px-6 py-20 md:px-6">
+        <div class="max-w-7xl mx-auto space-y-6">
+          <!-- Row 1: Title and Badge -->
+          <div
+            class="text-center md:text-left lg:flex lg:items-end lg:justify-between"
+          >
+            <div>
+              <div
+                class="inline-flex items-center justify-center md:justify-start space-x-2 text-sm font-semibold text-blue-900 bg-gray-200 bg-opacity-30 uppercase tracking-wide rounded-full px-3 border border-gray-300 py-1"
+              >
+                <span class="text-xl">𓆫</span>
+                <span>Passion. Purpose. Progress.</span>
+              </div>
+
+              <h2
+                class="mt-5 text-[2.5rem] text-blue-900 uppercase leading-none"
+                style="font-family: 'Anton', sans-serif; letter-spacing: 0.7px"
+              >
+                Our Story, Your Seafood
+              </h2>
+            </div>
+
+            <!-- CTA Button - only shows on lg+ inline here -->
+            <div class="hidden lg:block">
+              <a
+                href="#"
+                class="inline-block px-6 py-3 text-white uppercase font-semibold shadow-md bg-gradient-to-r from-blue-700 to-indigo-900 hover:brightness-90 rounded-md"
+              >
+                Read More
+              </a>
+            </div>
+          </div>
+
+          <!-- Row 2: Paragraph Description -->
+          <p
+            class="text-gray-600 text-base md:text-lg font-medium max-w-2xl mx-auto md:mx-0 text-center md:text-left"
+          >
+            Built on relationships with fishermen, farmers, and global buyers,
+            our story is a journey of quality, sustainability, and dedication to
+            the ocean's offerings.
+          </p>
+
+          <!-- CTA Button - shows only on sm & md below paragraph -->
+          <div class="block lg:hidden text-center md:text-left">
+            <a
+              href="#"
+              class="inline-block px-6 py-3 text-white uppercase font-semibold shadow-md bg-gradient-to-r from-blue-700 to-indigo-900 hover:brightness-90 rounded-md"
+            >
+              Read More
+            </a>
+          </div>
+        </div>
+      </section>
+      <section class="w-full pb-20">
+        <div
+          class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-[120px_1.5fr_1fr_1fr] w-full rounded-t-xl gap-0"
         >
-          Read More
-        </a>
-      </div>
-    </div>
+          <!-- First Box: Vertical text rotated on lg, horizontal on smaller -->
+          <div
+            class="bg-blue-600 text-white flex items-center justify-center rounded-t-lg lg:rounded-l-lg lg:rounded-tr-none min-h-[100px] lg:min-h-[500px] px-6 py-4 lg:px-0 lg:py-0"
+          >
+            <p
+              class="text-lg font-light tracking-wide text-center lg:transform lg:-rotate-90 lg:whitespace-nowrap"
+            >
+              DIVE INTO OUR STORY SECTION
+            </p>
+          </div>
 
-    <!-- Row 2: Paragraph Description -->
-    <p class="text-gray-600 text-base md:text-lg font-medium max-w-2xl mx-auto md:mx-0 text-center md:text-left">
-      Built on relationships with fishermen, farmers, and global buyers, our story is a journey of quality, sustainability, and dedication to the ocean's offerings.
-    </p>
+          <!-- Second Box: Text Content -->
+          <div
+            class="bg-blue-100 p-6 flex flex-col justify-center gap-5 min-h-[200px] lg:min-h-[350px]"
+          >
+            <div class="flex items-start gap-3">
+              <span
+                class="w-2.5 h-2.5 mt-1.5 rounded-full bg-blue-600 flex-shrink-0"
+              ></span>
+              <p>
+                2016 – Founded in India with a mission to deliver world-class
+                frozen seafood to global markets.
+              </p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span
+                class="w-2.5 h-2.5 mt-1.5 rounded-full bg-blue-600 flex-shrink-0"
+              ></span>
+              <p>
+                7+ Coastal States – Sourcing directly from fishing ports across
+                Maharashtra, Gujarat, Kerala, and beyond.
+              </p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span
+                class="w-2.5 h-2.5 mt-1.5 rounded-full bg-blue-600 flex-shrink-0"
+              ></span>
+              <p>
+                Certified Excellence – Partnered with HACCP, USFDA, and
+                EU-approved facilities for top-tier quality.
+              </p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span
+                class="w-2.5 h-2.5 mt-1.5 rounded-full bg-blue-600 flex-shrink-0"
+              ></span>
+              <p>
+                Cold Chain Innovation – Centralized logistics and packaging
+                systems to preserve freshness end-to-end.
+              </p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span
+                class="w-2.5 h-2.5 mt-1.5 rounded-full bg-blue-600 flex-shrink-0"
+              ></span>
+              <p>
+                Global Reach – Trusted by importers and seafood distributors
+                across Asia, Europe, and the Middle East.
+              </p>
+            </div>
+          </div>
 
-    <!-- CTA Button - shows only on sm & md below paragraph -->
-    <div class="block lg:hidden text-center md:text-left">
+          <!-- Images Container -->
+          <div
+            class="flex gap-2 min-h-[300px] lg:min-h-[500px] col-span-1 lg:col-span-2 flex-wrap sm:flex-nowrap rounded-b-lg lg:rounded-b-none lg:rounded-r-lg bg-blue-100"
+          >
+            <div
+              class="relative overflow-hidden flex-1 rounded-l-lg min-w-[45%] max-h-[500px]"
+            >
+              <img
+                src="../assets/home-page/category3.jpeg"
+                alt="Image 1"
+                class="w-full h-full object-cover max-h-[500px]"
+              />
+              <div class="absolute inset-0 bg-black/20"></div>
+            </div>
 
-      <a
-        href="#"
-        class="inline-block px-6 py-3 text-white uppercase font-semibold shadow-md bg-gradient-to-r from-blue-700 to-indigo-900 hover:brightness-90 rounded-md"
-      >
-        Read More
-      </a>
-    </div>
+            <div
+              class="relative overflow-hidden flex-1 rounded-r-lg min-w-[45%] max-h-[500px]"
+            >
+              <img
+                src="../assets/home-page/category4.jpeg"
+                alt="Image 2"
+                class="w-full h-full object-cover max-h-[500px]"
+              />
+              <div class="absolute inset-0 bg-black/20"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="px-6 pb-20 md:px-6">
+        <div class="mb-12 max-w-7xl mx-auto text-center">
+          <div
+            class="inline-flex items-center justify-center space-x-2 text-sm font-semibold text-blue-900 bg-gray-200 bg-opacity-30 uppercase tracking-wide rounded-full px-3 border border-gray-300 py-1"
+          >
+            <span class="text-xl">𓆫</span>
+            <span>Globally Certified</span>
+          </div>
+          <h2
+            class="mt-5 text-[2.5rem] text-blue-900 uppercase leading-none"
+            style="font-family: 'Anton', sans-serif; letter-spacing: 0.7px"
+          >
+            Approved to Export. Certified to Impress
+          </h2>
+        </div>
 
-  </div>
-</section>
-<section class="w-full pb-20">
-  <div
-    class="
-      grid
-      grid-cols-1
-      md:grid-cols-1
-      lg:grid-cols-[120px_1.5fr_1fr_1fr]
-      w-full
-      rounded-t-xl
-      gap-0
-    "
-  >
-    <!-- First Box: Vertical text rotated on lg, horizontal on smaller -->
-<div
-  class="
-    bg-blue-600
-    text-white
-    flex
-    items-center
-    justify-center
-    rounded-t-lg
-    lg:rounded-l-lg   
-    lg:rounded-tr-none
-    min-h-[100px]
-    lg:min-h-[500px]
-    px-6
-    py-4
-    lg:px-0
-    lg:py-0
-  "
->
+        <div
+          class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10"
+        >
+          <!-- Card 1 -->
+          <div
+            class="flex flex-col items-center h-[220px] max-w-sm w-full mx-auto"
+          >
+            <div class="bg-blue-100 rounded-t-2xl pt-6 pb-4 text-center w-full">
+              <h3 class="text-lg font-bold text-blue-900 pb-5">MPEDA India</h3>
+            </div>
+            <div
+              class="-mt-4 bg-white rounded-2xl border border-gray-200 px-4 py-6 text-center shadow-sm flex-1 flex items-center justify-center w-full"
+            >
+              <p class="text-gray-600 leading-relaxed text-sm">
+                (Marine Products Export<br />Development Authority)<br />Certificate
+                Of Exporter
+              </p>
+            </div>
+          </div>
 
-      <p
-        class="
-          text-lg
-          font-light
-          tracking-wide
-          text-center
-          lg:transform
-          lg:-rotate-90
-          lg:whitespace-nowrap
-        "
-      >
-        DIVE INTO OUR STORY SECTION
-      </p>
-    </div>
+          <!-- Card 2 -->
+          <div
+            class="flex flex-col items-center h-[220px] max-w-sm w-full mx-auto"
+          >
+            <div class="bg-blue-100 rounded-t-2xl pt-6 pb-4 text-center w-full">
+              <h3 class="text-lg font-bold text-blue-900 pb-5">EIC</h3>
+            </div>
+            <div
+              class="-mt-4 bg-white rounded-2xl border border-gray-200 px-4 py-6 text-center shadow-sm flex-1 flex items-center justify-center w-full"
+            >
+              <p class="text-gray-600 leading-relaxed text-sm">
+                (Export Development Council)<br />Certified
+              </p>
+            </div>
+          </div>
 
-    <!-- Second Box: Text Content -->
-    <div
-      class="
-        bg-blue-100
-        p-6
-        flex
-        flex-col
-        justify-center
-        gap-5
-        min-h-[200px]
-        lg:min-h-[350px]
-      "
-    >
-      <div class="flex items-start gap-3">
-        <span
-          class="w-2.5 h-2.5 mt-1.5 rounded-full bg-blue-600 flex-shrink-0"
-        ></span>
-        <p>
-          2016 – Founded in India with a mission to deliver world-class frozen
-          seafood to global markets.
-        </p>
-      </div>
-      <div class="flex items-start gap-3">
-        <span
-          class="w-2.5 h-2.5 mt-1.5 rounded-full bg-blue-600 flex-shrink-0"
-        ></span>
-        <p>
-          7+ Coastal States – Sourcing directly from fishing ports across
-          Maharashtra, Gujarat, Kerala, and beyond.
-        </p>
-      </div>
-      <div class="flex items-start gap-3">
-        <span
-          class="w-2.5 h-2.5 mt-1.5 rounded-full bg-blue-600 flex-shrink-0"
-        ></span>
-        <p>
-          Certified Excellence – Partnered with HACCP, USFDA, and EU-approved
-          facilities for top-tier quality.
-        </p>
-      </div>
-      <div class="flex items-start gap-3">
-        <span
-          class="w-2.5 h-2.5 mt-1.5 rounded-full bg-blue-600 flex-shrink-0"
-        ></span>
-        <p>
-          Cold Chain Innovation – Centralized logistics and packaging systems to
-          preserve freshness end-to-end.
-        </p>
-      </div>
-      <div class="flex items-start gap-3">
-        <span
-          class="w-2.5 h-2.5 mt-1.5 rounded-full bg-blue-600 flex-shrink-0"
-        ></span>
-        <p>
-          Global Reach – Trusted by importers and seafood distributors across
-          Asia, Europe, and the Middle East.
-        </p>
-      </div>
-    </div>
-
-<!-- Images Container -->
-<div
-  class="
-    flex
-    gap-2
-    min-h-[300px]       
-    lg:min-h-[500px]
-    col-span-1
-    lg:col-span-2
-    flex-wrap
-    sm:flex-nowrap
-    rounded-b-lg
-    lg:rounded-b-none
-    lg:rounded-r-lg
-    bg-blue-100
-  "
->
-  <div class="relative overflow-hidden flex-1 rounded-l-lg min-w-[45%] max-h-[500px]">
-    <img
-      src="../assets/home-page/category3.jpeg"
-      alt="Image 1"
-      class="w-full h-full object-cover max-h-[500px]"
-    />
-    <div class="absolute inset-0 bg-black/20"></div>
-  </div>
-
-  <div class="relative overflow-hidden flex-1 rounded-r-lg min-w-[45%] max-h-[500px]">
-    <img
-      src="../assets/home-page/category4.jpeg"
-      alt="Image 2"
-      class="w-full h-full object-cover max-h-[500px]"
-    />
-    <div class="absolute inset-0 bg-black/20"></div>
-  </div>
-</div>
-
-
-    </div>
-  </div>
-</section>
-<section class="px-6 pb-20 md:px-6">
-  <div class="mb-12 max-w-7xl mx-auto text-center">
-    <div class="inline-flex items-center justify-center space-x-2 text-sm font-semibold text-blue-900 bg-gray-200 bg-opacity-30 uppercase tracking-wide rounded-full px-3 border border-gray-300 py-1">
-      <span class="text-xl">𓆫</span>
-      <span>Globally Certified</span>
-    </div>
-    <h2 
-      class="mt-5 text-[2.5rem] text-blue-900 uppercase leading-none"
-      style="font-family: 'Anton', sans-serif; letter-spacing: 0.7px;"
-    >
-      Approved to Export. Certified to Impress
-    </h2>
-  </div>
-
-  <div
-    class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10"
-  >
-    <!-- Card 1 -->
-    <div class="flex flex-col items-center h-[220px] max-w-sm w-full mx-auto">
-      <div class="bg-blue-100 rounded-t-2xl pt-6 pb-4 text-center w-full">
-        <h3 class="text-lg font-bold text-blue-900 pb-5">MPEDA India</h3>
-      </div>
-      <div class="-mt-4 bg-white rounded-2xl border border-gray-200 px-4 py-6 text-center shadow-sm flex-1 flex items-center justify-center w-full">
-        <p class="text-gray-600 leading-relaxed text-sm">
-          (Marine Products Export<br />Development Authority)<br />Certificate Of Exporter
-        </p>
-      </div>
-    </div>
-
-    <!-- Card 2 -->
-    <div class="flex flex-col items-center h-[220px] max-w-sm w-full mx-auto">
-      <div class="bg-blue-100 rounded-t-2xl pt-6 pb-4 text-center w-full">
-        <h3 class="text-lg font-bold text-blue-900 pb-5">EIC</h3>
-      </div>
-      <div class="-mt-4 bg-white rounded-2xl border border-gray-200 px-4 py-6 text-center shadow-sm flex-1 flex items-center justify-center w-full">
-        <p class="text-gray-600 leading-relaxed text-sm">
-          (Export Development Council)<br />Certified
-        </p>
-      </div>
-    </div>
-
-    <!-- Card 3 -->
-    <div
-      class="flex flex-col items-center h-[220px] max-w-sm w-full mx-auto sm:col-span-2 sm:justify-self-center lg:col-span-1 lg:justify-self-auto"
-    >
-      <div class="bg-blue-100 rounded-t-2xl pt-6 pb-4 text-center w-full">
-        <h3 class="text-lg font-bold text-blue-900 pb-5">HACCP</h3>
-      </div>
-      <div class="-mt-4 bg-white rounded-2xl border border-gray-200 px-4 py-6 text-center shadow-sm flex-1 flex items-center justify-center w-full">
-        <p class="text-gray-600 leading-relaxed text-sm">
-          HACCP-Certified<br />Processing Unit
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
+          <!-- Card 3 -->
+          <div
+            class="flex flex-col items-center h-[220px] max-w-sm w-full mx-auto sm:col-span-2 sm:justify-self-center lg:col-span-1 lg:justify-self-auto"
+          >
+            <div class="bg-blue-100 rounded-t-2xl pt-6 pb-4 text-center w-full">
+              <h3 class="text-lg font-bold text-blue-900 pb-5">HACCP</h3>
+            </div>
+            <div
+              class="-mt-4 bg-white rounded-2xl border border-gray-200 px-4 py-6 text-center shadow-sm flex-1 flex items-center justify-center w-full"
+            >
+              <p class="text-gray-600 leading-relaxed text-sm">
+                HACCP-Certified<br />Processing Unit
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <!-- Footer placeholder -->
     <div x-ref="footer"></div>
-<script>
-  function slider() {
-    return {
-      current: 0,
-      items: [
-        {
-          img: '../assets/home-page/our-business-1.png',
-          title: 'Seafood Express Exporters',
-          desc: 'We export high-quality Pane-Shrimp. Prawns, Scampi, Squeal, Cuttlefish and variety of frozen fish.',
-          icon: 'mdi:ferry'
-        },
-        {
-          img: '../assets/home-page/our-business-2.png',
-          title: 'Seafood Express (Marketing Seafood)',
-          desc: 'We specialise in promoting sustainable farming of vannamei shrimp and Giant Freshwater Scampi.',
-          icon: 'mdi:lifebuoy'
-        },
-        {
-          img: '../assets/home-page/our-business-3.png',
-          title: 'Seafood Express Consultants',
-          desc: 'We offer consulting services for shrimp farm infrastructure and aquaculture operations.',
-          icon: 'mdi:fish'
-        }
-      ],
-      startRotation() {
-        setInterval(() => {
-          this.current = (this.current + 1) % this.items.length;
-        }, 3000);
-      }
-    };
-  }
-</script>
-
     <script>
+      function slider() {
+        return {
+          current: 0,
+          items: [
+            {
+              img: "../assets/home-page/our-business-1.png",
+              title: "Seafood Express Exporters",
+              desc: "We export high-quality Pane-Shrimp. Prawns, Scampi, Squeal, Cuttlefish and variety of frozen fish.",
+              icon: "mdi:ferry",
+            },
+            {
+              img: "../assets/home-page/our-business-2.png",
+              title: "Seafood Express (Marketing Seafood)",
+              desc: "We specialise in promoting sustainable farming of vannamei shrimp and Giant Freshwater Scampi.",
+              icon: "mdi:lifebuoy",
+            },
+            {
+              img: "../assets/home-page/our-business-3.png",
+              title: "Seafood Express Consultants",
+              desc: "We offer consulting services for shrimp farm infrastructure and aquaculture operations.",
+              icon: "mdi:fish",
+            },
+          ],
+          startRotation() {
+            setInterval(() => {
+              this.current = (this.current + 1) % this.items.length;
+            }, 3000);
+          },
+        };
+      }
+
       function layout() {
         return {
           async loadTemplates() {
