@@ -21,15 +21,11 @@
       href="https://fonts.googleapis.com/css2?family=Anton&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="../custom.css">
     <script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js"></script>
-    <style>
-      body {
-        font-family: "Poppins", sans-serif;
-      }
-    </style>
   </head>
   <body
-    x-data="layout()"
+    x-data="initPageLayout()"
     x-init="loadTemplates()"
     class="min-h-screen flex flex-col bg-white"
   >
@@ -79,8 +75,7 @@
           </div>
 
           <h2
-            class="mt-5 text-[2.5rem] text-blue-900 uppercase leading-none"
-            style="font-family: 'Anton', sans-serif; letter-spacing: 0.7px"
+            class="mt-5 text-[2.5rem] text-blue-900 uppercase leading-none custom-heading"
           >
             Approved to Export. CertiFied to Impress
           </h2>
@@ -154,7 +149,7 @@
     <div x-ref="footer"></div>
 
     <script>
-      function layout() {
+      function initPageLayout() {
         return {
           async loadTemplates() {
             const headerRes = await fetch("../templates/header.html");

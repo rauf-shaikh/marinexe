@@ -22,19 +22,9 @@
       href="https://fonts.googleapis.com/css2?family=Anton&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="../custom.css">
+
     <script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js"></script>
-    <style>
-      body {
-        font-family: "Poppins", sans-serif;
-      }
-      .no-scrollbar::-webkit-scrollbar {
-        display: none;
-      }
-      .no-scrollbar {
-        -ms-overflow-style: none; /* IE/Edge */
-        scrollbar-width: none; /* Firefox */
-      }
-    </style>
   </head>
   <body
     x-data="layout()"
@@ -80,8 +70,8 @@
       <section class="px-6 pt-20 md:px-6">
         <div class="max-w-7xl mx-auto text-center">
           <h2
-            class="text-[2.5rem] text-blue-900 uppercase leading-none"
-            style="font-family: 'Anton', sans-serif; letter-spacing: 0.7px"
+            class="text-[2.5rem] text-blue-900 uppercase leading-none custom-heading"
+
           >
             Our Seafood products
           </h2>
@@ -307,7 +297,7 @@
         };
       }
 
-      function layout() {
+      function initPageLayout() {
         return {
           async loadTemplates() {
             const headerRes = await fetch("../templates/header.html");

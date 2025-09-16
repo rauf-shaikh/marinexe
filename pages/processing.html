@@ -22,16 +22,12 @@
       href="https://fonts.googleapis.com/css2?family=Anton&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="../custom.css">
 
     <script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js"></script>
-    <style>
-      body {
-        font-family: "Poppins", sans-serif;
-      }
-    </style>
   </head>
   <body
-    x-data="layout()"
+    x-data="initPageLayout()"
     x-init="loadTemplates()"
     class="min-h-screen flex flex-col bg-white"
   >
@@ -80,8 +76,7 @@
           </div>
 
           <h2
-            class="mt-5 text-[2.5rem] text-blue-900 uppercase leading-none"
-            style="font-family: 'Anton', sans-serif; letter-spacing: 0.7px"
+            class="mt-5 text-[2.5rem] text-blue-900 uppercase leading-none custom-heading"
           >
             Our step-by-step processing excellence
           </h2>
@@ -198,8 +193,7 @@
               <span>Hygiene & safety</span>
             </div>
             <h2
-              class="mt-5 text-[2.5rem] text-blue-900 uppercase leading-tight"
-              style="font-family: 'Anton', sans-serif; letter-spacing: 0.7px"
+              class="mt-5 text-[2.5rem] text-blue-900 uppercase leading-tight custom-heading"
             >
               Hygiene <br />
               Is Our Promise
@@ -387,8 +381,7 @@
           </div>
 
           <h2
-            class="mt-5 text-[2.5rem] text-blue-900 uppercase leading-none"
-            style="font-family: 'Anton', sans-serif; letter-spacing: 0.7px"
+            class="mt-5 text-[2.5rem] text-blue-900 uppercase leading-none custom-heading"
           >
             Freezing that preserves freshness
           </h2>
@@ -523,8 +516,7 @@
           </div>
 
           <h2
-            class="mt-5 text-[2.5rem] text-blue-900 uppercase leading-none"
-            style="font-family: 'Anton', sans-serif; letter-spacing: 0.7px"
+            class="mt-5 text-[2.5rem] text-blue-900 uppercase leading-none custom-heading"
           >
             Packaging That Travels the World
           </h2>
@@ -540,8 +532,7 @@
           <img
             src="../assets/processing-page/export-banner-img.jpg"
             alt="Marine Excellence"
-            class="w-full object-cover rounded-xl lg:rounded-none"
-            style="height: 500px"
+            class="w-full object-cover rounded-xl lg:rounded-none banner-img"
           />
         </div>
       </section>
@@ -636,7 +627,7 @@
     <div x-ref="footer"></div>
 
     <script>
-      function layout() {
+      function initPageLayout() {
         return {
           async loadTemplates() {
             const headerRes = await fetch("../templates/header.html");
