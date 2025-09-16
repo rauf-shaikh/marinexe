@@ -68,7 +68,7 @@
           </div>
         </div>
       </div>
-      <!-- certification page Section 1 -->
+      <!-- export page Section 1 -->
       <section class="px-6 pt-20 md:px-6">
         <div class="max-w-7xl mx-auto text-center mb-12">
           <div
@@ -144,6 +144,82 @@
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      <!-- export page Section 2 -->
+      <section class="px-6 pb-20 md:px-6">
+        <div class="max-w-7xl mx-auto px-6 lg:px-0">
+          <div
+            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
+          >
+            <!-- Step Template -->
+            <div
+              class="bg-blue-100 rounded-xl p-6 sm:p-10 shadow-md flex flex-col min-h-[250px] items-center text-center md:items-start md:text-left transition duration-300 hover:shadow-lg"
+            >
+              <img
+                src="https://flagcdn.com/w40/gb.png"
+                alt="UK Flag"
+                class="w-9 h-auto mb-2 rounded-sm"
+              />
+              <h4 class="text-xl font-semibold text-blue-900 my-4">UK</h4>
+              <p class="text-base text-gray-600 max-w-xl">
+                Largest buyer of Indian shrimp. Popular imports: Vannamei
+                shrimp, squid, tuna.
+              </p>
+            </div>
+
+            <!-- Step 02 -->
+            <div
+              class="bg-blue-100 rounded-xl p-6 sm:p-10 shadow-md flex flex-col min-h-[250px] items-center text-center md:items-start md:text-left transition duration-300 hover:shadow-lg"
+            >
+              <img
+                src="https://flagcdn.com/w40/jp.png"
+                alt="Japan Flag"
+                class="w-9 h-auto mb-2 rounded-sm"
+              />
+
+              <h4 class="text-xl font-semibold text-blue-900 my-4">Japan</h4>
+              <p class="text-base text-gray-600">
+                Prefers octopus, lobster, yellowfin tuna. Trusted for premium
+                seafood quality.
+              </p>
+            </div>
+
+            <!-- Step 03 -->
+            <div
+              class="bg-blue-100 rounded-xl p-6 sm:p-10 shadow-md flex flex-col min-h-[250px] items-center text-center md:items-start md:text-left transition duration-300 hover:shadow-lg"
+            >
+              <img
+                src="https://flagcdn.com/w40/ae.png"
+                alt="UAE Flag"
+                class="w-9 h-auto mb-2 rounded-sm"
+              />
+              <h4 class="text-xl font-semibold text-blue-900 my-4">
+                Middle East
+              </h4>
+              <p class="text-base text-gray-600">
+                Growing demand for ribbon fish, seafood mix, and prawns.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          x-data="{ currentPage: 1, totalPages: 3 }"
+          class="flex justify-center space-x-4 pt-10"
+        >
+          <template x-for="page in totalPages" :key="page">
+            <button
+              @click="currentPage = page"
+              :class="{        'bg-blue-800': currentPage === page,
+                'border border-blue-800': currentPage !== page
+            }"
+              class="w-5 h-5 rounded-full transition-colors"
+              :aria-current="currentPage === page ? 'page' : false"
+              :aria-label="'Go to page ' + page"
+              type="button"
+            ></button>
+          </template>
         </div>
       </section>
     </main>
