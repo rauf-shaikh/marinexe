@@ -17,19 +17,23 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
       rel="stylesheet"
-    /><link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
-<script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js"></script>
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js"></script>
     <style>
       body {
         font-family: "Poppins", sans-serif;
       }
-        .no-scrollbar::-webkit-scrollbar {
-    display: none;
-  }
-  .no-scrollbar {
-    -ms-overflow-style: none; /* IE/Edge */
-    scrollbar-width: none; /* Firefox */
-  }
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none; /* IE/Edge */
+        scrollbar-width: none; /* Firefox */
+      }
     </style>
   </head>
   <body
@@ -52,21 +56,9 @@
 
         <!-- Optional overlay content -->
         <div class="relative z-10 h-full flex items-center justify-center">
-<div
-  class="max-w-7xl mx-auto absolute bottom-0
-    left-4 right-4
-    sm:left-6 sm:right-6
-    md:left-8 md:right-8
-    lg:left-16 lg:right-16
-    xl:left-24 xl:right-24
-    2xl:left-[100px] 2xl:right-[100px]
-    flex flex-col
-    items-center sm:items-start
-    justify-end
-    text-center sm:text-left
-    z-10
-    pb-8 md:pb-12 lg:pb-8"
->
+          <div
+            class="max-w-7xl mx-auto absolute bottom-0 left-4 right-4 sm:left-6 sm:right-6 md:left-8 md:right-8 lg:left-16 lg:right-16 xl:left-24 xl:right-24 2xl:left-[100px] 2xl:right-[100px] flex flex-col items-center sm:items-start justify-end text-center sm:text-left z-10 pb-8 md:pb-12 lg:pb-8"
+          >
             <div class="max-w-full md:max-w-2xl space-y-6 md:space-y-7">
               <h1
                 class="text-white text-3xl md:text-5xl font-semibold drop-shadow-lg leading-tight lg:whitespace-nowrap"
@@ -77,7 +69,7 @@
               <p
                 class="text-white text-lg md:text-lg font-medium drop-shadow leading-relaxed max-w-2xl"
               >
-              Certified, Processed & Globally Shipped.
+                Certified, Processed & Globally Shipped.
               </p>
             </div>
           </div>
@@ -87,13 +79,15 @@
       <!-- Product page Section 1 -->
       <section class="px-6 pt-20 md:px-6">
         <div class="max-w-7xl mx-auto text-center">
-          <h2 
+          <h2
             class="text-[2.5rem] text-blue-900 uppercase leading-none"
-            style="font-family: 'Anton', sans-serif; letter-spacing: 0.7px;"
+            style="font-family: 'Anton', sans-serif; letter-spacing: 0.7px"
           >
             Our Seafood products
-          </h2>    
-          <p class="mt-4 text-gray-600 mx-auto text-base md:text-lg font-medium leading-relaxed max-w-full md:max-w-3xl lg:max-w-4xl">
+          </h2>
+          <p
+            class="mt-4 text-gray-600 mx-auto text-base md:text-lg font-medium leading-relaxed max-w-full md:max-w-3xl lg:max-w-4xl"
+          >
             Explore a wide range of export-quality fish and seafood varieties
           </p>
         </div>
@@ -102,10 +96,11 @@
       <!-- Product page Section 2 -->
       <section class="px-6 py-20 md:px-8 lg:px-12">
         <div class="max-w-7xl mx-auto" x-data="productStore()">
-          
           <!-- Filter Buttons -->
           <div class="overflow-x-auto sm:overflow-visible mb-6 no-scrollbar">
-            <div class="flex flex-nowrap sm:flex-wrap gap-2 sm:gap-4 justify-start sm:justify-center">
+            <div
+              class="flex flex-nowrap sm:flex-wrap gap-2 sm:gap-4 justify-start sm:justify-center"
+            >
               <template x-for="filter in filters" :key="filter">
                 <button
                   @click="selected = filter"
@@ -121,7 +116,9 @@
             </div>
           </div>
 
-          <div class="grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          <div
+            class="grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+          >
             <template x-for="product in allProductsSorted" :key="product.name">
               <div
                 :class="product.categories.includes(selected) ? 
@@ -135,13 +132,19 @@
                   class="w-full h-48 object-cover"
                 />
                 <div class="p-4">
-                  <h3 class="text-lg font-semibold" :class="product.categories.includes(selected) ? 'text-gray-800' : 'text-blue-900'" x-text="product.name"></h3>
-                  <p class="text-sm text-gray-600 mt-2" x-text="product.description"></p>
+                  <h3
+                    class="text-lg font-semibold"
+                    :class="product.categories.includes(selected) ? 'text-gray-800' : 'text-blue-900'"
+                    x-text="product.name"
+                  ></h3>
+                  <p
+                    class="text-sm text-gray-600 mt-2"
+                    x-text="product.description"
+                  ></p>
                 </div>
               </div>
             </template>
           </div>
-
         </div>
       </section>
     </main>
@@ -151,133 +154,157 @@
     <script>
       function productStore() {
         return {
-          selected: 'All Products',
+          selected: "All Products",
 
-          filters: ['All Products', 'Best Seller', 'In High Demand', 'Most Exported'],
+          filters: [
+            "All Products",
+            "Best Seller",
+            "In High Demand",
+            "Most Exported",
+          ],
           products: [
             {
-              name: 'Scampi',
-              categories: ['In High Demand', 'Best Seller'],
-              image: '../assets/product-page/product-img1.png',
-              description: 'Freshwater scampi with delicate flavor, sourced from trusted farms.',
+              name: "Scampi",
+              categories: ["In High Demand", "Best Seller"],
+              image: "../assets/product-page/product-img1.png",
+              description:
+                "Freshwater scampi with delicate flavor, sourced from trusted farms.",
             },
             {
-              name: 'Black Tiger Shrimp',
-              categories: ['Best Seller'],
-              image: '../assets/product-page/product-img2.jpeg',
-              description: 'Premium wild-caught shrimp known for its size and taste.',
+              name: "Black Tiger Shrimp",
+              categories: ["Best Seller"],
+              image: "../assets/product-page/product-img2.jpeg",
+              description:
+                "Premium wild-caught shrimp known for its size and taste.",
             },
             {
-              name: 'Vannamei Shrimp',
-              categories: ['Most Exported'],
-              image: '../assets/product-page/product-img3.png',
-              description: 'Farmed white shrimp — processed and exported globally.',
+              name: "Vannamei Shrimp",
+              categories: ["Most Exported"],
+              image: "../assets/product-page/product-img3.png",
+              description:
+                "Farmed white shrimp — processed and exported globally.",
             },
             {
-              name: 'Tuna',
-              categories: ['Most Exported'],
-              image: '../assets/product-page/product-img4.png',
-              description: 'Cleaned and processed tuna, export-ready.',
+              name: "Tuna",
+              categories: ["Most Exported"],
+              image: "../assets/product-page/product-img4.png",
+              description: "Cleaned and processed tuna, export-ready.",
             },
             {
-              name: 'Cuttle Fish',
-              categories: ['In High Demand'],
-              image: '../assets/product-page/product-img5.png',
-              description: 'Export-grade, cleaned and frozen for global delivery.',
+              name: "Cuttle Fish",
+              categories: ["In High Demand"],
+              image: "../assets/product-page/product-img5.png",
+              description:
+                "Export-grade, cleaned and frozen for global delivery.",
             },
             {
-              name: 'Semi Needle Loligo Squid',
-              categories: ['In High Demand'],
-              image: '../assets/product-page/product-img6.png',
-              description: 'Premium semi-needle squid, frozen and export ready.',
+              name: "Semi Needle Loligo Squid",
+              categories: ["In High Demand"],
+              image: "../assets/product-page/product-img6.png",
+              description:
+                "Premium semi-needle squid, frozen and export ready.",
             },
             {
-              name: 'Loligo Squid',
-              categories: ['Best Seller', 'In High Demand'],
-              image: '../assets/product-page/product-img7.png',
-              description: 'Frozen whole squid, popular in international markets.',
+              name: "Loligo Squid",
+              categories: ["Best Seller", "In High Demand"],
+              image: "../assets/product-page/product-img7.png",
+              description:
+                "Frozen whole squid, popular in international markets.",
             },
             {
-              name: 'Ribbon Fish',
-              categories: ['Most Exported'],
-              image: '../assets/product-page/product-img8.png',
-              description: 'Wild-caught, frozen ribbon fish for export demand.',
+              name: "Ribbon Fish",
+              categories: ["Most Exported"],
+              image: "../assets/product-page/product-img8.png",
+              description: "Wild-caught, frozen ribbon fish for export demand.",
             },
             {
-              name: 'Catfish (Frozen)',
-              categories: ['Most Exported'],
-              image: '../assets/product-page/product-img9.png',
-              description: 'Farm-raised and processed catfish for export.',
+              name: "Catfish (Frozen)",
+              categories: ["Most Exported"],
+              image: "../assets/product-page/product-img9.png",
+              description: "Farm-raised and processed catfish for export.",
             },
             {
-              name: 'Queen Fish (Frozen)',
-              categories: ['Most Exported'],
-              image: '../assets/product-page/product-img10.png',
-              description: 'Frozen queen fish, processed for overseas buyers.',
+              name: "Queen Fish (Frozen)",
+              categories: ["Most Exported"],
+              image: "../assets/product-page/product-img10.png",
+              description: "Frozen queen fish, processed for overseas buyers.",
             },
             {
-              name: 'Yellow Croaker (Frozen)',
-              categories: ['Most Exported'],
-              image: '../assets/product-page/product-img11.png',
-              description: 'High-demand yellow croaker, frozen for global trade.',
+              name: "Yellow Croaker (Frozen)",
+              categories: ["Most Exported"],
+              image: "../assets/product-page/product-img11.png",
+              description:
+                "High-demand yellow croaker, frozen for global trade.",
             },
             {
-              name: 'Crab',
-              categories: ['In High Demand'],
-              image: '../assets/product-page/product-img12.png',
-              description: 'Freshly frozen crab, sourced for global seafood markets.',
+              name: "Crab",
+              categories: ["In High Demand"],
+              image: "../assets/product-page/product-img12.png",
+              description:
+                "Freshly frozen crab, sourced for global seafood markets.",
             },
             {
-              name: 'Lobster (Panulirus Polyphagus)',
-              categories: ['Best Seller', 'In High Demand'],
-              image: '../assets/product-page/product-img13.png',
-              description: 'Premium spiny lobster, frozen and ready for export.',
+              name: "Lobster (Panulirus Polyphagus)",
+              categories: ["Best Seller", "In High Demand"],
+              image: "../assets/product-page/product-img13.png",
+              description:
+                "Premium spiny lobster, frozen and ready for export.",
             },
             {
-              name: 'Yellowfin Tuna',
-              categories: ['Most Exported', 'In High Demand'],
-              image: '../assets/product-page/product-img14.jpg',
-              description: 'Ocean-caught yellowfin, frozen for international trade.',
+              name: "Yellowfin Tuna",
+              categories: ["Most Exported", "In High Demand"],
+              image: "../assets/product-page/product-img14.jpg",
+              description:
+                "Ocean-caught yellowfin, frozen for international trade.",
             },
             {
-              name: 'Dorab (Wolf Herring)',
-              categories: ['Most Exported'],
-              image: '../assets/product-page/product-img15.png',
-              description: 'Frozen dorab herring, popular in export destinations.',
+              name: "Dorab (Wolf Herring)",
+              categories: ["Most Exported"],
+              image: "../assets/product-page/product-img15.png",
+              description:
+                "Frozen dorab herring, popular in export destinations.",
             },
             {
-              name: 'Seawater Shrimps',
-              categories: ['In High Demand'],
-              image: '../assets/product-page/product-img16.png',
-              description: 'Wild-caught shrimps, frozen for premium export markets.',
+              name: "Seawater Shrimps",
+              categories: ["In High Demand"],
+              image: "../assets/product-page/product-img16.png",
+              description:
+                "Wild-caught shrimps, frozen for premium export markets.",
             },
           ],
 
           get highlightedProducts() {
-            if (this.selected === 'All Products') return this.products;
-            return this.products.filter(p => p.categories.includes(this.selected));
+            if (this.selected === "All Products") return this.products;
+            return this.products.filter((p) =>
+              p.categories.includes(this.selected)
+            );
           },
 
           get otherProducts() {
-            if (this.selected === 'All Products') return [];
-            return this.products.filter(p => !p.categories.includes(this.selected));
+            if (this.selected === "All Products") return [];
+            return this.products.filter(
+              (p) => !p.categories.includes(this.selected)
+            );
           },
 
           get allProductsSorted() {
-            if (this.selected === 'All Products') return this.products;
+            if (this.selected === "All Products") return this.products;
 
-            const highlighted = this.products.filter(p =>
-              Array.isArray(p.categories) ? p.categories.includes(this.selected) : p.categories === this.selected
+            const highlighted = this.products.filter((p) =>
+              Array.isArray(p.categories)
+                ? p.categories.includes(this.selected)
+                : p.categories === this.selected
             );
 
-            const others = this.products.filter(p =>
-              Array.isArray(p.categories) ? !p.categories.includes(this.selected) : p.categories !== this.selected
+            const others = this.products.filter((p) =>
+              Array.isArray(p.categories)
+                ? !p.categories.includes(this.selected)
+                : p.categories !== this.selected
             );
 
             return [...highlighted, ...others];
-          }
-
-        }
+          },
+        };
       }
     </script>
 
