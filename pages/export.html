@@ -1,0 +1,172 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Export - Marinexe</title>
+    <link rel="icon" href="https://marinexe.blogspot.com/favicon.ico" />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Alpine.js CDN -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js"></script>
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+      }
+    </style>
+  </head>
+  <body
+    x-data="layout()"
+    x-init="loadTemplates()"
+    class="min-h-screen flex flex-col bg-white"
+  >
+    <!-- Header placeholder -->
+    <div x-ref="header"></div>
+
+    <main class="flex-grow">
+      <!-- Hero Section with Background Image -->
+      <div class="relative h-[70vh] w-full overflow-hidden">
+        <img
+          src="../assets/export-page/header-image.jpg"
+          alt="About Image"
+          class="absolute top-0 left-0 w-full h-full object-cover"
+        />
+        <div class="absolute inset-0 bg-black bg-opacity-20"></div>
+
+        <!-- Optional overlay content -->
+        <div class="relative z-10 h-full flex items-center justify-center">
+          <div
+            class="max-w-7xl mx-auto absolute bottom-0 left-4 right-4 sm:left-6 sm:right-6 md:left-8 md:right-8 lg:left-16 lg:right-16 xl:left-24 xl:right-24 2xl:left-[100px] 2xl:right-[100px] flex flex-col items-center sm:items-start justify-end text-center sm:text-left z-10 pb-8 md:pb-12 lg:pb-8"
+          >
+            <div class="max-w-full md:max-w-2xl space-y-6 md:space-y-7">
+              <h1
+                class="text-white text-3xl md:text-5xl font-semibold drop-shadow-lg uppercase"
+              >
+                Delivering Seafood from India to the World
+              </h1>
+
+              <p
+                class="text-white text-lg md:text-lg font-medium drop-shadow leading-relaxed max-w-2xl"
+              >
+                Connecting Indian coasts to international plates with premium
+                frozen seafood.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- certification page Section 1 -->
+      <section class="px-6 pt-20 md:px-6">
+        <div class="max-w-7xl mx-auto text-center mb-12">
+          <div
+            class="inline-flex items-center justify-center space-x-2 text-sm font-semibold text-blue-900 bg-gray-200 bg-opacity-30 uppercase tracking-wide rounded-full px-3 border border-gray-300 py-1"
+          >
+            <span class="text-xl">𓆫</span>
+            <span>Global Presence</span>
+          </div>
+
+          <h2
+            class="mt-5 text-[2.5rem] text-blue-900 uppercase leading-none"
+            style="font-family: 'Anton', sans-serif; letter-spacing: 0.7px"
+          >
+            Our Key Export Markets
+          </h2>
+          <p
+            class="mt-5 text-gray-600 mx-auto text-base md:text-lg font-medium leading-relaxed max-w-full md:max-w-3xl lg:max-w-5xl"
+          >
+            We supply premium frozen seafood from India to the world’s leading
+            markets, ensuring quality, hygiene, and sustainability across every
+            shipment.
+          </p>
+        </div>
+
+        <!-- map -->
+        <div class="w-full max-w-5xl mx-auto aspect-[16/9] relative">
+          <img
+            src="../assets/export-page/123.png"
+            alt="World Map"
+            class="absolute top-0 left-0 w-full h-full object-contain rounded"
+          />
+        </div>
+        <div
+          class="max-w-7xl mx-auto py-20 flex flex-col lg:flex-row gap-10 items-start"
+        >
+          <!-- Left Side: Label + Heading -->
+          <div class="w-full lg:w-1/2 text-center lg:text-left">
+            <div
+              class="inline-flex items-center justify-center lg:justify-start space-x-2 text-sm font-semibold text-blue-900 uppercase tracking-wide bg-gray-200 bg-opacity-30 rounded-full px-3 border border-gray-300 py-1"
+            >
+              <span class="text-xl">𓆫</span>
+              <span>Market Insights</span>
+            </div>
+            <h2
+              class="mt-5 text-[2.5rem] text-blue-900 uppercase leading-none"
+              style="font-family: 'Anton', sans-serif; letter-spacing: 0.7px"
+            >
+              Where Our <br />
+              Seafood is Trusted
+            </h2>
+          </div>
+
+          <!-- Right Side: Bullet Paragraphs -->
+          <div
+            class="w-full lg:w-1/2 space-y-6 text-gray-600 text-base md:text-lg leading-relaxed font-medium pt-6 lg:pt-0 text-center lg:text-left"
+          >
+            <div class="flex items-start gap-4">
+              <p>
+                Every region we serve has its own unique seafood demands and
+                regulations. Seafood Express adapts to these market preferences
+                with tailored sourcing, processing, and packaging solutions.
+              </p>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <p>
+                Whether it is the United States with its high demand for
+                Vannamei shrimp, Japan’s preference for premium octopus and
+                tuna, or the Middle East’s growing appetite for ribbon fish and
+                prawns, our export operations are designed to meet diverse
+                requirements while maintaining consistency, safety, and
+                sustainability.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer placeholder -->
+    <div x-ref="footer"></div>
+
+    <script>
+      function layout() {
+        return {
+          async loadTemplates() {
+            const headerRes = await fetch("../templates/header.html");
+            const headerHtml = await headerRes.text();
+            this.$refs.header.innerHTML = headerHtml;
+            Alpine.initTree(this.$refs.header);
+
+            const footerRes = await fetch("../templates/footer.html");
+            const footerHtml = await footerRes.text();
+            this.$refs.footer.innerHTML = footerHtml;
+            Alpine.initTree(this.$refs.footer);
+          },
+        };
+      }
+    </script>
+  </body>
+</html>
