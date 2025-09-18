@@ -38,30 +38,30 @@
       <div
         class="relative min-h-screen w-full overflow-hidden bg-black pt-24 sm:pt-28"
         x-data="{
-    videos: [
-      '../assets/home-page/video1.mp4',
-      '../assets/home-page/video2.mp4',
-      '../assets/home-page/video3.mp4',
-      '../assets/home-page/video4.mp4',
-      '../assets/home-page/video5.mp4',
-      '../assets/home-page/video6.mp4'
-    ],
-    selected: '',
-    loaded: false,
-    init() {
-      this.selected = this.videos[Math.floor(Math.random() * this.videos.length)];
-      this.$nextTick(() => {
-        const videoEl = this.$refs.video;
-        videoEl.oncanplaythrough = () => {
-          if (!this.loaded) {
-            this.loaded = true; // only set true once
+          videos: [
+            '../assets/home-page/video1.mp4',
+            '../assets/home-page/video2.mp4',
+            '../assets/home-page/video3.mp4',
+            '../assets/home-page/video4.mp4',
+            '../assets/home-page/video5.mp4',
+            '../assets/home-page/video6.mp4'
+          ],
+          selected: '',
+          loaded: false,
+          init() {
+            this.selected = this.videos[Math.floor(Math.random() * this.videos.length)];
+            this.$nextTick(() => {
+              const videoEl = this.$refs.video;
+              videoEl.oncanplaythrough = () => {
+                if (!this.loaded) {
+                  this.loaded = true; // only set true once
+                }
+              };
+              videoEl.load();
+            });
           }
-        };
-        videoEl.load();
-      });
-    }
-  }"
-      >
+        }"
+        >
         <!-- Static black background, never changed -->
         <div class="absolute inset-0 bg-black z-0"></div>
 
@@ -118,37 +118,37 @@
       <section
         class="px-6 py-20 md:px-6"
         x-data="{
-    categories: {
-      'Scampi': 'our-product-img1.png',
-      'Black Tiger Shrimp': 'our-product-img2.jpeg',
-      'Vannamei Shrimp': 'our-product-img3.png',
-      'Lobster': 'our-product-img4.jpg',
-      'Tuna Varieties': 'our-product-img5.jpg',
-      'Crustaceans': 'our-product-img6.jpg',
-      'Fishes': 'our-product-img7.jpg',
-      'Cephalopods': 'our-product-img8.jpg',
-      'Surimi': 'our-product-img9.jpg',
-      'Molluscs': 'our-product-img10.jpg'
-    },
-    selected: 'Scampi',
-    keys() {
-      return Object.keys(this.categories);
-    },
-    selectCategory(name) {
-      this.selected = name;
-    },
-    nextCategory() {
-      const keys = this.keys();
-      let index = keys.indexOf(this.selected);
-      this.selected = keys[(index + 1) % keys.length];
-    },
-    prevCategory() {
-      const keys = this.keys();
-      let index = keys.indexOf(this.selected);
-      this.selected = keys[(index - 1 + keys.length) % keys.length];
-    }
-  }"
-      >
+          categories: {
+            'Scampi': 'our-product-img1.png',
+            'Black Tiger Shrimp': 'our-product-img2.jpeg',
+            'Vannamei Shrimp': 'our-product-img3.png',
+            'Lobster': 'our-product-img4.jpg',
+            'Tuna Varieties': 'our-product-img5.jpg',
+            'Crustaceans': 'our-product-img6.jpg',
+            'Fishes': 'our-product-img7.jpg',
+            'Cephalopods': 'our-product-img8.jpg',
+            'Surimi': 'our-product-img9.jpg',
+            'Molluscs': 'our-product-img10.jpg'
+          },
+          selected: 'Scampi',
+          keys() {
+            return Object.keys(this.categories);
+          },
+          selectCategory(name) {
+            this.selected = name;
+          },
+          nextCategory() {
+            const keys = this.keys();
+            let index = keys.indexOf(this.selected);
+            this.selected = keys[(index + 1) % keys.length];
+          },
+          prevCategory() {
+            const keys = this.keys();
+            let index = keys.indexOf(this.selected);
+            this.selected = keys[(index - 1 + keys.length) % keys.length];
+          }
+        }"
+            >
         <!-- Title now appears above everything and is aligned left -->
         <div class="mb-8 max-w-7xl mx-auto text-center md:text-left">
           <div
