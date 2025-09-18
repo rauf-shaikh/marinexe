@@ -141,74 +141,29 @@
           </div>
         </div>
       </section>
-
       <!-- export page Section 2 -->
-      <section class="px-6 pb-20 md:px-6">
+      <section class="px-6 pb-20 md:px-6" x-data="flagPagination()" x-cloak>
         <div class="max-w-7xl mx-auto px-6 lg:px-0">
-          <div
-            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
-          >
-            <!-- Step Template -->
-            <div
-              class="bg-blue-100 rounded-xl p-6 sm:p-10 shadow-md flex flex-col min-h-[250px] items-center text-center md:items-start md:text-left transition duration-300 hover:shadow-lg"
-            >
-              <img
-                src="https://flagcdn.com/w40/gb.png"
-                alt="UK Flag"
-                class="w-9 h-auto mb-2 rounded-sm"
-              />
-              <h4 class="text-xl font-semibold text-blue-900 my-4">UK</h4>
-              <p class="text-base text-gray-600 max-w-xl">
-                Largest buyer of Indian shrimp. Popular imports: Vannamei
-                shrimp, squid, tuna.
-              </p>
-            </div>
-
-            <!-- Step 02 -->
-            <div
-              class="bg-blue-100 rounded-xl p-6 sm:p-10 shadow-md flex flex-col min-h-[250px] items-center text-center md:items-start md:text-left transition duration-300 hover:shadow-lg"
-            >
-              <img
-                src="https://flagcdn.com/w40/jp.png"
-                alt="Japan Flag"
-                class="w-9 h-auto mb-2 rounded-sm"
-              />
-
-              <h4 class="text-xl font-semibold text-blue-900 my-4">Japan</h4>
-              <p class="text-base text-gray-600">
-                Prefers octopus, lobster, yellowfin tuna. Trusted for premium
-                seafood quality.
-              </p>
-            </div>
-
-            <!-- Step 03 -->
-            <div
-              class="bg-blue-100 rounded-xl p-6 sm:p-10 shadow-md flex flex-col min-h-[250px] items-center text-center md:items-start md:text-left transition duration-300 hover:shadow-lg"
-            >
-              <img
-                src="https://flagcdn.com/w40/ae.png"
-                alt="UAE Flag"
-                class="w-9 h-auto mb-2 rounded-sm"
-              />
-              <h4 class="text-xl font-semibold text-blue-900 my-4">
-                Middle East
-              </h4>
-              <p class="text-base text-gray-600">
-                Growing demand for ribbon fish, seafood mix, and prawns.
-              </p>
-            </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            <template x-for="flag in paginatedFlags" :key="flag.title">
+              <div
+                class="bg-blue-100 rounded-xl p-6 sm:p-10 shadow-md flex flex-col min-h-[250px] items-center text-center md:items-start md:text-left transition duration-300 hover:shadow-lg"
+              >
+                <img :src="flag.image" :alt="flag.title + ' Flag'" class="w-9 h-auto mb-2 rounded-sm" />
+                <h4 class="text-xl font-semibold text-blue-900 my-4" x-text="flag.title"></h4>
+                <p class="text-base text-gray-600" x-text="flag.description"></p>
+              </div>
+            </template>
           </div>
         </div>
-        <div
-          x-data="{ currentPage: 1, totalPages: 3 }"
-          class="flex justify-center space-x-4 pt-10"
-        >
+        <div class="flex justify-center space-x-4 pt-10">
           <template x-for="page in totalPages" :key="page">
             <button
               @click="currentPage = page"
-              :class="{        'bg-blue-800': currentPage === page,
+              :class="{
+                'bg-blue-800': currentPage === page,
                 'border border-blue-800': currentPage !== page
-            }"
+              }"
               class="w-5 h-5 rounded-full transition-colors"
               :aria-current="currentPage === page ? 'page' : false"
               :aria-label="'Go to page ' + page"
@@ -223,6 +178,89 @@
     <div x-ref="footer"></div>
 
     <script>
+      function flagPagination() {
+        return {
+          currentPage: 1,
+          itemsPerPage: 3,
+          flags: [
+            {
+              image: "https://flagcdn.com/w40/gb.png",
+              title: "UK",
+              description: "Largest buyer of Indian shrimp. Popular imports: Vannamei shrimp, squid, tuna.",
+            },
+            {
+              image: "https://flagcdn.com/w40/jp.png",
+              title: "Japan",
+              description: "Prefers octopus, lobster, yellowfin tuna. Trusted for premium seafood quality.",
+            },
+            {
+              image: "https://flagcdn.com/w40/ae.png",
+              title: "Middle East",
+              description: "Growing demand for ribbon fish, seafood mix, and prawns.",
+            },
+            {
+              image: "https://flagcdn.com/w40/tn.png",
+              title: "Tunisia",
+              description: "High demand for fresh seafood including lobsters and crabs.",
+            },
+            {
+              image: "https://flagcdn.com/w40/my.png",
+              title: "Malaysia",
+              description: "Known for gourmet seafood tastes including oysters and scallops.",
+            },
+            {
+              image: "https://flagcdn.com/w40/th.png",
+              title: "Thailand",
+              description: "Strong market for high-quality prawns and fish varieties.",
+            },
+            {
+              image: "https://flagcdn.com/w40/za.png",
+              title: "South Africa",
+              description: "Strong market for high-quality prawns and fish varieties.",
+            },
+            {
+              image: "https://flagcdn.com/w40/mu.png",
+              title: "Mauritius",
+              description: "Strong market for high-quality prawns and fish varieties.",
+            },
+            {
+              image: "https://flagcdn.com/w40/fr.png",
+              title: "Réunion Island",
+              description: "Strong market for high-quality prawns and fish varieties.",
+            },
+            {
+              image: "https://flagcdn.com/w40/cn.png",
+              title: "China",
+              description: "Strong market for high-quality prawns and fish varieties.",
+            },
+            {
+              image: "https://flagcdn.com/w40/vn.png",
+              title: "Vietnam",
+              description: "Strong market for high-quality prawns and fish varieties.",
+            },
+            {
+              image: "https://flagcdn.com/w40/tw.png",
+              title: "Taiwan",
+              description: "Strong market for high-quality prawns and fish varieties.",
+            },
+            {
+              image: "https://flagcdn.com/w40/eu.png",
+              title: "European Union",
+              description: "Strong market for high-quality prawns and fish varieties.",
+            },
+          ],
+
+          get totalPages() {
+            return Math.ceil(this.flags.length / this.itemsPerPage);
+          },
+
+          get paginatedFlags() {
+            const start = (this.currentPage - 1) * this.itemsPerPage;
+            return this.flags.slice(start, start + this.itemsPerPage);
+          },
+        };
+      }
+
       function initPageLayout() {
         return {
           async loadTemplates() {
