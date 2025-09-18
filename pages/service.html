@@ -257,91 +257,117 @@
           </div>
         </div>
       </section>
-<!-- service page Section 2 -->
-<section class="px-6 py-16" x-data="{ showChat: false }">
-  <div class="max-w-7xl mx-auto">
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 text-center border border-gray-300 rounded-xl">
-      
-      <!-- Live Chatbot -->
-      <div @click="showChat = true" class="cursor-pointer p-5 flex flex-col items-center text-center">
-        <div class="bg-blue-100 p-4 mb-4 flex items-center">
-          <iconify-icon icon="hugeicons:chatting-01" width="36" height="36" class="text-blue-900"></iconify-icon>
+      <!-- service page Section 2 -->
+      <section class="px-6 py-16" x-data="{ showChat: false }">
+        <div class="max-w-5xl mx-auto">
+          <div
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-center border border-gray-300 rounded-xl"
+          >
+            <!-- Live Chatbot (STATIC) -->
+            <div
+              class="p-5 md:p-10 flex flex-col items-center lg:items-start text-center lg:text-left"
+            >
+              <div
+                class="bg-blue-100 p-4 mb-4 flex items-center justify-center"
+              >
+                <iconify-icon
+                  icon="hugeicons:chatting-01"
+                  width="36"
+                  height="36"
+                  class="text-blue-900"
+                ></iconify-icon>
+              </div>
+              <h4 class="text-blue-900 font-bold text-base mb-1">
+                Live Chatbot
+              </h4>
+              <p class="text-gray-600 text-sm">
+                Talk to get advice Contact With Chatbot
+              </p>
+            </div>
+
+            <!-- Contact Us -->
+            <div
+              class="p-5 md:p-10 flex flex-col items-center lg:items-start text-center lg:text-left"
+            >
+              <a
+                href="contact.html"
+                class="bg-blue-100 p-4 mb-4 flex items-center justify-center cursor-pointer"
+              >
+                <iconify-icon
+                  icon="solar:phone-bold"
+                  width="36"
+                  height="36"
+                  class="text-blue-900"
+                ></iconify-icon>
+              </a>
+              <h4 class="text-blue-900 font-bold text-base mb-1">Contact Us</h4>
+              <a
+                href="tel:+919324566111"
+                class="text-gray-600 text-sm hover:underline cursor-pointer"
+              >
+                +91 9324566111
+              </a>
+              <a
+                href="mailto:sales@seafoodexpress.in"
+                class="text-gray-600 text-sm hover:underline cursor-pointer"
+              >
+                sales@seafoodexpress.in
+              </a>
+            </div>
+
+            <!-- Address -->
+            <div
+              class="p-5 md:p-10 flex flex-col items-center lg:items-start text-center lg:text-left"
+            >
+              <div
+                class="bg-blue-100 p-4 mb-4 flex items-center justify-center"
+              >
+                <iconify-icon
+                  icon="mdi:map-marker"
+                  width="36"
+                  height="36"
+                  class="text-blue-900"
+                ></iconify-icon>
+              </div>
+              <h4 class="text-blue-900 font-bold text-base mb-1">Address</h4>
+              <p class="text-gray-600 text-sm leading-relaxed">
+                1601, A-Wing, IRIS,<br />
+                Lodha Paradise,<br />
+                Majiwada, Thane,<br />
+                Maharashtra - 400 601
+              </p>
+            </div>
+
+            <!-- WhatsApp -->
+            <div
+              class="p-5 md:p-10 flex flex-col items-center lg:items-start text-center lg:text-left"
+            >
+              <a
+                href="https://wa.me/1234567890"
+                target="_blank"
+                class="bg-blue-100 p-4 mb-4 flex items-center justify-center cursor-pointer"
+              >
+                <iconify-icon
+                  icon="mdi:whatsapp"
+                  width="36"
+                  height="36"
+                  class="text-blue-900"
+                ></iconify-icon>
+              </a>
+              <h4 class="text-blue-900 font-bold text-base mb-1">
+                Whatsapp Us
+              </h4>
+              <a
+                href="https://wa.me/1234567890"
+                target="_blank"
+                class="text-gray-600 text-sm font-bold underline cursor-pointer"
+              >
+                +91 9324567890
+              </a>
+            </div>
+          </div>
         </div>
-        <h4 class="text-blue-900 font-bold text-base mb-1">Live Chatbot</h4>
-        <p class="text-gray-600 text-sm">Talk to get advice</p>
-        <p class="text-gray-600 text-sm">Contact With Chatbot</p>
-      </div>
-
-      <!-- Contact Us -->
-      <a href="contact.html" class="cursor-pointer p-5 flex flex-col items-center text-center">
-        <div class="bg-blue-100 p-4 mb-4 flex items-center">
-          <iconify-icon icon="solar:phone-bold" width="36" height="36" class="text-blue-900"></iconify-icon>
-        </div>
-        <h4 class="text-blue-900 font-bold text-base mb-1">Contact Us</h4>
-        <p class="text-gray-600 text-sm">+91 9324566111</p>
-        <p class="text-gray-600 text-sm">sales@seafoodexpress.in</p>
-      </a>
-
-      <!-- Address -->
-      <div class="cursor-pointer p-5 flex flex-col items-center text-center">
-        <div class="bg-blue-100 p-4 mb-4 flex items-center">
-          <iconify-icon icon="mdi:map-marker" width="36" height="36" class="text-blue-900"></iconify-icon>
-        </div>
-        <h4 class="text-blue-900 font-bold text-base mb-1">Address</h4>
-        <p class="text-gray-600 text-sm leading-relaxed">
-          1601, A-Wing, IRIS,<br>
-          Lodha Paradise,<br>
-          Majiwada, Thane,<br>
-          Maharashtra - 400 601
-        </p>
-      </div>
-
-      <!-- WhatsApp -->
-      <a href="https://wa.me/1234567890" target="_blank" class="cursor-pointer p-5 flex flex-col items-center text-center">
-        <div class="bg-blue-100 p-4 mb-4 flex items-center">
-          <iconify-icon icon="mdi:whatsapp" width="36" height="36" class="text-blue-900"></iconify-icon>
-        </div>
-        <h4 class="text-blue-900 font-bold text-base mb-1">Whatsapp Us</h4>
-        <p class="text-gray-600 text-sm font-bold underline">+91 9324566111</p>
-      </a>
-
-    </div>
-  </div>
-  <!-- Chat Modal -->
-  <div
-    x-show="showChat"
-    @click.away="showChat = false"
-    class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
-  >
-    <div class="bg-white w-full max-w-md mx-4 p-6 rounded-lg shadow-xl relative">
-      <button
-        @click="showChat = false"
-        class="absolute top-2 right-2 text-gray-600 hover:text-black"
-      >
-        <iconify-icon icon="mdi:close" width="20" height="20"></iconify-icon>
-      </button>
-      <h3 class="text-lg font-semibold mb-4 text-blue-900 flex items-center gap-2">
-        <iconify-icon icon="hugeicons:chatting-01" width="22" height="22"></iconify-icon>
-        Live Chat
-      </h3>
-      <p class="text-sm text-gray-600 mb-4">
-        👋 Hello! How can we assist you today?
-      </p>
-      <textarea
-        class="w-full border border-gray-300 rounded-md p-2 text-sm"
-        rows="4"
-        placeholder="Type your message..."
-      ></textarea>
-      <button
-        class="mt-4 bg-blue-900 text-white px-4 py-2 rounded hover:bg-blue-800 transition"
-      >
-        Send
-      </button>
-    </div>
-  </div>
-</section>
-
-
+      </section>
     </main>
     <!-- Footer placeholder -->
     <div x-ref="footer"></div>
