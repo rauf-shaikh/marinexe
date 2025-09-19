@@ -22,7 +22,7 @@
       href="https://fonts.googleapis.com/css2?family=Anton&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../custom.css">
+    <link rel="stylesheet" href="css/custom.css">
 
     <script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js"></script>
   </head>
@@ -39,12 +39,12 @@
         class="relative min-h-screen w-full overflow-hidden bg-black pt-24 sm:pt-28"
         x-data="{
           videos: [
-            '../assets/home-page/video1.mp4',
-            '../assets/home-page/video2.mp4',
-            '../assets/home-page/video3.mp4',
-            '../assets/home-page/video4.mp4',
-            '../assets/home-page/video5.mp4',
-            '../assets/home-page/video6.mp4'
+            'assets/home-page/video1.mp4',
+            'assets/home-page/video2.mp4',
+            'assets/home-page/video3.mp4',
+            'assets/home-page/video4.mp4',
+            'assets/home-page/video5.mp4',
+            'assets/home-page/video6.mp4'
           ],
           selected: '',
           loaded: false,
@@ -197,7 +197,7 @@
                   <!-- Freshwater Fish -->
                   <div class="relative w-full flex-1 min-h-0">
                     <img
-                      src="../assets/home-page/fish-category1.jpg"
+                      src="assets/home-page/fish-category1.jpg"
                       alt="Freshwater Fish"
                       class="w-full h-full object-cover"
                     />
@@ -211,7 +211,7 @@
                   <!-- Seawater Fish -->
                   <div class="relative w-full flex-1 min-h-0">
                     <img
-                      src="../assets/home-page/fish-category2.jpg"
+                      src="assets/home-page/fish-category2.jpg"
                       alt="Seawater Fish"
                       class="w-full h-full object-cover"
                     />
@@ -227,7 +227,7 @@
               <!-- All other categories -->
               <template x-if="selected !== 'Fishes'">
                 <img
-                  :src="'../assets/home-page/' + categories[selected]"
+                  :src="'assets/home-page/' + categories[selected]"
                   alt=""
                   class="w-full h-full object-cover"
                 />
@@ -304,7 +304,7 @@
             class="overflow-hidden rounded-bl-xl shadow-lg flex items-center justify-center w-full"
           >
             <img
-              src="../assets/home-page/our-business-1.png"
+              src="assets/home-page/our-business-1.png"
               alt="Image 1"
               class="w-full h-80 md:h-[400px] lg:h-[500px] object-cover"
             />
@@ -314,7 +314,7 @@
             class="overflow-hidden shadow-lg flex items-center justify-center w-full"
           >
             <img
-              src="../assets/home-page/our-business-2.png"
+              src="assets/home-page/our-business-2.png"
               alt="Image 2"
               class="w-full h-80 md:h-[400px] lg:h-[500px] object-cover"
             />
@@ -324,7 +324,7 @@
             class="overflow-hidden rounded-br-xl shadow-lg flex items-center justify-center w-full"
           >
             <img
-              src="../assets/home-page/our-business-3.png"
+              src="assets/home-page/our-business-3.png"
               alt="Image 3"
               class="w-full h-80 md:h-[400px] lg:h-[500px] object-cover"
             />
@@ -505,7 +505,7 @@
               class="relative flex-shrink-0 w-48 sm:w-52 md:w-64 h-80 rounded-md overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 snap-start"
             >
               <img
-                src="../assets/home-page/premium-img1.jpeg"
+                src="assets/home-page/premium-img1.jpeg"
                 alt="Scampi"
                 class="w-full h-full object-cover"
               />
@@ -525,7 +525,7 @@
               class="relative flex-shrink-0 w-48 sm:w-52 md:w-64 h-80 rounded-md overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 snap-start"
             >
               <img
-                src="../assets/home-page/our-product-img2.jpeg"
+                src="assets/home-page/our-product-img2.jpeg"
                 alt="Black Tiger Shrimp"
                 class="w-full h-full object-cover"
               />
@@ -545,7 +545,7 @@
               class="relative flex-shrink-0 w-48 sm:w-52 md:w-64 h-80 rounded-md overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 snap-start"
             >
               <img
-                src="../assets/home-page/our-product-img3.png"
+                src="assets/home-page/our-product-img3.png"
                 alt="Vannamei Shrimp"
                 class="w-full h-full object-cover"
               />
@@ -565,7 +565,7 @@
               class="relative flex-shrink-0 w-48 sm:w-52 md:w-64 h-80 rounded-md overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 snap-start"
             >
               <img
-                src="../assets/home-page/our-product-img5.jpg"
+                src="assets/home-page/our-product-img5.jpg"
                 alt="Tuna"
                 class="w-full h-full object-cover"
               />
@@ -610,7 +610,7 @@
             class="relative h-80 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300"
           >
             <img
-              src="../assets/home-page/premium-img1.jpeg"
+              src="assets/home-page/premium-img1.jpeg"
               alt="Scampi"
               class="w-full h-full object-cover"
             />
@@ -628,7 +628,7 @@
             class="relative h-80 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300"
           >
             <img
-              src="../assets/home-page/our-product-img2.jpeg"
+              src="assets/home-page/our-product-img2.jpeg"
               alt="Black Tiger Shrimp"
               class="w-full h-full object-cover"
             />
@@ -646,7 +646,7 @@
             class="relative h-80 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300"
           >
             <img
-              src="../assets/home-page/our-product-img3.png"
+              src="assets/home-page/our-product-img3.png"
               alt="Vannamei Shrimp"
               class="w-full h-full object-cover"
             />
@@ -664,7 +664,7 @@
             class="relative h-80 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300"
           >
             <img
-              src="../assets/home-page/our-product-img5.jpg"
+              src="assets/home-page/our-product-img5.jpg"
               alt="Tuna"
               class="w-full h-full object-cover"
             />
@@ -804,7 +804,7 @@
               class="relative overflow-hidden flex-1 rounded-l-lg min-w-[45%] max-h-[500px]"
             >
               <img
-                src="../assets/home-page/category3.jpeg"
+                src="assets/home-page/category3.jpeg"
                 alt="Image 1"
                 class="w-full h-full object-cover max-h-[500px]"
               />
@@ -815,7 +815,7 @@
               class="relative overflow-hidden flex-1 rounded-r-lg min-w-[45%] max-h-[500px]"
             >
               <img
-                src="../assets/home-page/category4.jpeg"
+                src="assets/home-page/category4.jpeg"
                 alt="Image 2"
                 class="w-full h-full object-cover max-h-[500px]"
               />
@@ -902,19 +902,19 @@
           current: 0,
           items: [
             {
-              img: "../assets/home-page/our-business-1.png",
+              img: "assets/home-page/our-business-1.png",
               title: "Seafood Express Exporters",
               desc: "We export high-quality Pane-Shrimp. Prawns, Scampi, Squeal, Cuttlefish and variety of frozen fish.",
               icon: "mdi:ferry",
             },
             {
-              img: "../assets/home-page/our-business-2.png",
+              img: "assets/home-page/our-business-2.png",
               title: "Seafood Express (Marketing Seafood)",
               desc: "We specialise in promoting sustainable farming of vannamei shrimp and Giant Freshwater Scampi.",
               icon: "mdi:lifebuoy",
             },
             {
-              img: "../assets/home-page/our-business-3.png",
+              img: "assets/home-page/our-business-3.png",
               title: "Seafood Express Consultants",
               desc: "We offer consulting services for shrimp farm infrastructure and aquaculture operations.",
               icon: "mdi:fish",
@@ -931,12 +931,12 @@
       function initPageLayout() {
         return {
           async loadTemplates() {
-            const headerRes = await fetch("../templates/header.html");
+            const headerRes = await fetch("templates/header.html");
             const headerHtml = await headerRes.text();
             this.$refs.header.innerHTML = headerHtml;
             Alpine.initTree(this.$refs.header);
 
-            const footerRes = await fetch("../templates/footer.html");
+            const footerRes = await fetch("templates/footer.html");
             const footerHtml = await footerRes.text();
             this.$refs.footer.innerHTML = footerHtml;
             Alpine.initTree(this.$refs.footer);
